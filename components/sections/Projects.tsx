@@ -1,105 +1,220 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CloudIcon, MonitorIcon, DatabaseIcon, LineChartIcon } from "@/components/icons";
-import SectionHeading from "@/components/ui/SectionHeading";
-import GlassCard from "@/components/ui/GlassCard";
-import Badge from "@/components/ui/Badge";
 
 const projects = [
   {
     title: "IoT Air Quality Monitoring",
     category: "IoT / Machine Learning",
-    description: "Real-time air quality monitoring using ML algorithms for pollution prediction.",
+    description:
+      "Real-time air quality monitoring using ML algorithms for pollution prediction and environmental analysis.",
     technologies: ["Python", "TensorFlow", "ESP32"],
-    status: "Completed",
-    icon: CloudIcon,
-    color: "#DA291C",
+    status: "Production",
+    year: "2025",
   },
   {
     title: "Semantic Segmentation for Smoke Detection",
     category: "Deep Learning / Computer Vision",
-    description: "Detecting cigarette and vape smoke using semantic segmentation models.",
+    description:
+      "Detecting cigarette and vape smoke using advanced semantic segmentation models for public health monitoring.",
     technologies: ["Python", "PyTorch", "React"],
     status: "Thesis",
-    icon: MonitorIcon,
-    color: "#FFD700",
+    year: "2025",
   },
   {
     title: "E-Government Adoption Analysis",
     category: "Information Systems Research",
-    description: "TAM and ISSM analysis for e-government adoption in Indonesia.",
+    description:
+      "TAM and ISSM analysis for e-government adoption in Indonesia through quantitative research methodology.",
     technologies: ["Python", "SPSS", "SEM"],
-    status: "Published",
-    icon: DatabaseIcon,
-    color: "#DA291C",
+    status: "Production",
+    year: "2024",
   },
   {
     title: "AI Health Application Acceptance",
     category: "AI Research",
-    description: "Factors affecting user acceptance of AI-based digital health apps.",
+    description:
+      "Investigating factors affecting user acceptance of AI-based digital health applications in healthcare.",
     technologies: ["Python", "R", "MLR"],
-    status: "Published",
-    icon: LineChartIcon,
-    color: "#FFD700",
+    status: "Production",
+    year: "2024",
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-32 bg-[#050505]">
-      <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading
-          title="Projects"
-          subtitle="Technical work solving real problems"
-          align="center"
-        />
+    <section id="projects" className="relative py-40 overflow-hidden">
+      {/* Subtle ambient background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-125 h-100 bg-[#DA291C]/2 blur-[150px] rounded-full" />
+      </div>
 
-        <div className="mt-16 grid md:grid-cols-2 gap-6">
+      <div className="mx-auto max-w-5xl px-6">
+        {/* Section Header - Consistent with About, Education, Research */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-[10px] text-[#DA291C] uppercase tracking-[0.3em] mb-4"
+          >
+            Projects
+          </motion.p>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            viewport={{ once: true }}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-5"
+          >
+            Building solutions that{' '}
+            <span className="bg-linear-to-r from-[#DA291C] to-[#e64a3a] bg-clip-text text-transparent">
+              matter
+            </span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-sm text-zinc-500 max-w-xl"
+          >
+            Technical work solving real-world problems through innovation, research, and practical applications
+          </motion.p>
+        </motion.div>
+
+        {/* Projects Grid - 2x2 layout */}
+        <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.7, delay: index * 0.1 }}
               viewport={{ once: true }}
+              className="relative group"
             >
-              <GlassCard className="p-6 h-full">
-                <div className="flex items-start gap-4 mb-4">
+              {/* Card */}
+              <div
+                className="relative rounded-2xl p-8 border transition-all duration-500 group-hover:border-white/8"
+                style={{
+                  background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
+                  borderColor: "rgba(255,255,255,0.04)",
+                }}
+              >
+                {/* Subtle glow on hover */}
+                <div
+                  className="absolute -inset-6 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"
+                  style={{
+                    background: "radial-gradient(ellipse at top left, rgba(218,41,28,0.06), transparent 60%)",
+                  }}
+                />
+
+                {/* Header row with status */}
+                <div className="flex items-start justify-between mb-6">
+                  <div>
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="text-[10px] text-zinc-600 uppercase tracking-[0.15em]"
+                    >
+                      {project.category}
+                    </motion.span>
+                  </div>
+
+                  {/* Status badge */}
                   <div
-                    className="p-3 rounded-lg shrink-0"
-                    style={{ backgroundColor: `${project.color}15` }}
+                    className="px-3 py-1 rounded-full text-[10px] font-medium tracking-wide border"
+                    style={{
+                      backgroundColor:
+                        project.status === "Production"
+                          ? "rgba(218,41,28,0.08)"
+                          : project.status === "Thesis"
+                            ? "rgba(255,215,0,0.08)"
+                            : "rgba(255,255,255,0.03)",
+                      borderColor:
+                        project.status === "Production"
+                          ? "rgba(218,41,28,0.2)"
+                          : project.status === "Thesis"
+                            ? "rgba(255,215,0,0.2)"
+                            : "rgba(255,255,255,0.08)",
+                      color:
+                        project.status === "Production"
+                          ? "#DA291C"
+                          : project.status === "Thesis"
+                            ? "#FFD700"
+                            : "#71717a",
+                    }}
                   >
-                    <project.icon
-                      className="w-6 h-6"
-                      style={{ color: project.color }}
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-bold text-white">{project.title}</h3>
-                    <p className="text-xs text-zinc-600 mt-0.5">{project.category}</p>
+                    {project.status}
                   </div>
                 </div>
 
-                <p className="text-sm text-zinc-500 leading-relaxed mb-4">
+                {/* Title */}
+                <motion.h3
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="text-xl font-semibold text-white mb-4 tracking-tight leading-tight"
+                >
+                  {project.title}
+                </motion.h3>
+
+                {/* Description */}
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="text-sm text-zinc-500 leading-relaxed mb-6"
+                >
                   {project.description}
-                </p>
+                </motion.p>
 
-                <div className="flex flex-wrap gap-1.5 mb-4">
+                {/* Technologies */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.35 + index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex flex-wrap gap-2"
+                >
                   {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="default" className="text-[10px]">
+                    <span
+                      key={tech}
+                      className="text-[10px] px-3 py-1 rounded-full bg-white/3 border border-white/6 text-zinc-500"
+                    >
                       {tech}
-                    </Badge>
+                    </span>
                   ))}
-                </div>
-
-                <Badge variant={project.status === "Completed" ? "accent" : project.status === "Thesis" ? "gold" : "default"}>
-                  {project.status}
-                </Badge>
-              </GlassCard>
+                </motion.div>
+              </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Bottom flourish */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-20 flex justify-center"
+        >
+          <div className="h-px w-24 bg-linear-to-r from-transparent via-[#DA291C]/25 to-transparent" />
+        </motion.div>
       </div>
     </section>
   );
