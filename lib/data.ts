@@ -6,6 +6,7 @@ export const navItems = [
   { name: "Awards", href: "#awards" },
   { name: "Copyrights", href: "#copyrights" },
   { name: "Certifications", href: "#certifications" },
+  { name: "Volunteer", href: "#volunteer" },
   { name: "Research", href: "#research" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
