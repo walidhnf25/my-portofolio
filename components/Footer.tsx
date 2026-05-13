@@ -20,7 +20,7 @@ export default function Footer() {
             <h3 className="text-lg font-bold">
               <span className="gradient-text-accent">Walid Hanif Ataullah</span>
             </h3>
-            <p className="mt-1 text-sm text-zinc-600">Software Engineer & AI Researcher</p>
+            <p className="mt-1 text-sm text-zinc-600">Software Engineer & ML/DL Enthusiast</p>
           </div>
 
           <div className="flex items-center gap-2">

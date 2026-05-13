@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { Download } from "lucide-react";
 import { LinkedinIcon, GraduationCapIcon, MailIcon, MessageCircleIcon } from "@/components/icons";
 import Button from "@/components/ui/Button";
 import GridBackground from "@/components/backgrounds/GridBackground";
@@ -56,7 +56,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-8 text-lg md:text-xl text-zinc-500 tracking-wide"
           >
-            Software Engineer <span className="text-zinc-600 mx-2">·</span> AI Researcher <span className="text-zinc-600 mx-2">·</span> IoT Innovator
+            Software Engineer <span className="text-zinc-600 mx-2">·</span> ML/DL Enthusiast <span className="text-zinc-600 mx-2">·</span> IoT Explorer
           </motion.p>
 
           <motion.p
@@ -72,12 +72,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-10 flex items-center gap-4"
+            className="mt-10 flex justify-center"
           >
-            <Button variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
-              View Research
-            </Button>
-            <Button variant="secondary" size="lg" icon={<Download className="w-4 h-4" />}>
+            <Button variant="primary" size="lg" icon={<Download className="w-4 h-4" />}>
               Download CV
             </Button>
           </motion.div>
