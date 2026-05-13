@@ -140,21 +140,12 @@ export default function Projects() {
                       backgroundColor:
                         project.status === "Production"
                           ? "rgba(218,41,28,0.08)"
-                          : project.status === "Thesis"
-                            ? "rgba(255,215,0,0.08)"
-                            : "rgba(255,255,255,0.03)",
+                          : "rgba(255,215,0,0.08)",
                       borderColor:
                         project.status === "Production"
                           ? "rgba(218,41,28,0.2)"
-                          : project.status === "Thesis"
-                            ? "rgba(255,215,0,0.2)"
-                            : "rgba(255,255,255,0.08)",
-                      color:
-                        project.status === "Production"
-                          ? "#DA291C"
-                          : project.status === "Thesis"
-                            ? "#FFD700"
-                            : "#71717a",
+                          : "rgba(255,215,0,0.2)",
+                      color: project.status === "Production" ? "#DA291C" : "#FFD700",
                     }}
                   >
                     {project.status}
