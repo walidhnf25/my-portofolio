@@ -94,9 +94,9 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-          {projects.map((project, index) => (
+          {projects.map((projects, index) => (
             <motion.div
-              key={project.title}
+              key={projects.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: index * 0.1 }}
@@ -129,7 +129,7 @@ export default function Projects() {
                       viewport={{ once: true }}
                       className="text-[10px] text-zinc-600 uppercase tracking-widest"
                     >
-                      {project.category}
+                      {projects.category}
                     </motion.span>
                   </div>
 
@@ -138,17 +138,17 @@ export default function Projects() {
                     className="px-3 py-1 rounded-full text-[10px] font-medium tracking-wide border shrink-0"
                     style={{
                       backgroundColor:
-                        project.status === "Production"
+                        projects.status === "Production"
                           ? "rgba(218,41,28,0.08)"
                           : "rgba(255,215,0,0.08)",
                       borderColor:
-                        project.status === "Production"
+                        projects.status === "Production"
                           ? "rgba(218,41,28,0.2)"
                           : "rgba(255,215,0,0.2)",
-                      color: project.status === "Production" ? "#DA291C" : "#FFD700",
+                      color: projects.status === "Production" ? "#DA291C" : "#FFD700",
                     }}
                   >
-                    {project.status}
+                    {projects.status}
                   </div>
                 </div>
 
@@ -160,7 +160,7 @@ export default function Projects() {
                   viewport={{ once: true }}
                   className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 tracking-tight leading-tight"
                 >
-                  {project.title}
+                  {projects.title}
                 </motion.h3>
 
                 {/* Description */}
@@ -171,7 +171,7 @@ export default function Projects() {
                   viewport={{ once: true }}
                   className="text-sm text-zinc-500 leading-relaxed mb-4 sm:mb-5"
                 >
-                  {project.description}
+                  {projects.description}
                 </motion.p>
 
                 {/* Technologies */}
@@ -182,7 +182,7 @@ export default function Projects() {
                   viewport={{ once: true }}
                   className="flex flex-wrap gap-2"
                 >
-                  {project.technologies.map((tech) => (
+                  {projects.technologies.map((tech) => (
                     <span
                       key={tech}
                       className="text-[10px] px-3 py-1 rounded-full bg-white/3 border border-white/6 text-zinc-500"

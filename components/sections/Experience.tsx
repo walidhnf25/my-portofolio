@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const experiences = [
+const experience = [
   {
     company: "PT. Harapan Energie Indonesia",
     location: "Tangerang City, Indonesia",
@@ -124,7 +124,7 @@ export default function Experience() {
             <div className="relative h-full w-px bg-linear-to-b from-[#DA291C]/30 via-[#DA291C]/15 to-[#FFD700]/15" />
 
             {/* Nodes */}
-            {experiences.map((_, index) => (
+            {experience.map((_, index) => (
               <div
                 key={index}
                 className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2"
@@ -140,9 +140,9 @@ export default function Experience() {
 
           {/* Experience cards */}
           <div className="space-y-6 lg:space-y-16">
-            {experiences.map((exp, index) => (
+            {experience.map((experience, index) => (
               <motion.div
-                key={`${exp.company}-${exp.role}`}
+                key={`${experience.company}-${experience.role}`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: index * 0.1 }}
@@ -165,7 +165,7 @@ export default function Experience() {
                   <div
                     className="absolute -inset-6 rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-700 -z-10"
                     style={{
-                      background: `radial-gradient(ellipse at ${index % 2 === 0 ? "left" : "right"}, ${exp.accentColor}06, transparent 60%)`,
+                      background: `radial-gradient(ellipse at ${index % 2 === 0 ? "left" : "right"}, ${experience.accentColor}06, transparent 60%)`,
                     }}
                   />
 
@@ -174,13 +174,13 @@ export default function Experience() {
                     <div className="flex flex-wrap items-center gap-3">
                       <span
                         className="text-[10px] font-medium tracking-[0.2em] uppercase"
-                        style={{ color: exp.accentColor }}
+                        style={{ color: experience.accentColor }}
                       >
-                        {exp.period}
+                        {experience.period}
                       </span>
                       <div className="w-8 h-px bg-zinc-700 hidden sm:block" />
                       <span className="text-[10px] text-zinc-600 uppercase tracking-widest">
-                        {exp.type}
+                        {experience.type}
                       </span>
                     </div>
 
@@ -192,7 +192,7 @@ export default function Experience() {
                       viewport={{ once: true }}
                       className="text-xl md:text-2xl font-semibold text-white tracking-tight leading-tight"
                     >
-                      {exp.role}
+                      {experience.role}
                     </motion.h3>
 
                     {/* Company & Location */}
@@ -203,8 +203,8 @@ export default function Experience() {
                       viewport={{ once: true }}
                       className="space-y-1"
                     >
-                      <p className="text-sm text-zinc-400">{exp.company}</p>
-                      <p className="text-xs text-zinc-600">{exp.location}</p>
+                      <p className="text-sm text-zinc-400">{experience.company}</p>
+                      <p className="text-xs text-zinc-600">{experience.location}</p>
                     </motion.div>
 
                     {/* Description */}
@@ -215,7 +215,7 @@ export default function Experience() {
                       viewport={{ once: true }}
                       className="text-sm text-zinc-500 leading-relaxed"
                     >
-                      {exp.description}
+                      {experience.description}
                     </motion.p>
 
                     {/* Highlights */}
@@ -226,7 +226,7 @@ export default function Experience() {
                       viewport={{ once: true }}
                       className="flex flex-wrap gap-2"
                     >
-                      {exp.highlights.map((highlight) => (
+                      {experience.highlights.map((highlight) => (
                         <span
                           key={highlight}
                           className="text-[10px] px-3 py-1 rounded-full bg-white/3 border border-white/6 text-zinc-500"

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const skillCategories = [
+const skills = [
   {
     title: "Programming & Data",
     skills: ["Python", "Golang", "JavaScript", "PHP", "TypeScript", "SQL", "C", "C++", "C#", "R", "JSON"],
@@ -88,9 +88,9 @@ export default function Skills() {
 
         {/* Skills Grid - Modern staggered layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-          {skillCategories.map((category, index) => (
+          {skills.map((skills, index) => (
             <motion.div
-              key={category.title}
+              key={skills.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.08 }}
@@ -109,26 +109,26 @@ export default function Skills() {
                 <div
                   className="absolute -inset-6 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"
                   style={{
-                    background: `radial-gradient(ellipse at top, ${category.accentColor}08, transparent 60%)`,
+                    background: `radial-gradient(ellipse at top, ${skills.accentColor}08, transparent 60%)`,
                   }}
                 />
 
                 {/* Category Title */}
                 <h3
                   className="text-sm font-semibold tracking-tight mb-5"
-                  style={{ color: category.accentColor }}
+                  style={{ color: skills.accentColor }}
                 >
-                  {category.title}
+                  {skills.title}
                 </h3>
 
                 {/* Skills Tags */}
                 <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
+                  {skills.skills.map((skills) => (
                     <span
-                      key={skill}
+                      key={skills}
                       className="text-[11px] px-3 py-1.5 rounded-lg bg-white/3 border border-white/6 text-zinc-400 hover:border-white/10 hover:text-white hover:bg-white/6 transition-all duration-300"
                     >
-                      {skill}
+                      {skills}
                     </span>
                   ))}
                 </div>

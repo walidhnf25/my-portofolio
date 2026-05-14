@@ -23,9 +23,9 @@ const publications = [
   },
 ];
 
-export default function Research() {
+export default function Publications() {
   return (
-    <section id="research" className="relative py-40 overflow-hidden">
+    <section id="publications" className="relative py-40 overflow-hidden">
       {/* Subtle ambient background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2 w-125 h-100 bg-[#DA291C]/2 blur-[150px] rounded-full" />
@@ -47,7 +47,7 @@ export default function Research() {
             viewport={{ once: true }}
             className="text-[10px] text-[#DA291C] uppercase tracking-[0.3em] mb-4"
           >
-            Research
+            Publications
           </motion.p>
 
           <motion.h2
@@ -157,7 +157,7 @@ export default function Research() {
           ))}
         </div>
 
-        {/* Research Philosophy Quote */}
+        {/* Publications Philosophy Quote */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

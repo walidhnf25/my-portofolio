@@ -79,9 +79,9 @@ export default function Copyrights() {
 
         {/* Copyrights List */}
         <div className="space-y-6">
-          {copyrights.map((copyright, index) => (
+          {copyrights.map((copyrights, index) => (
             <motion.div
-              key={copyright.registrationNo}
+              key={copyrights.registrationNo}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: index * 0.12 }}
@@ -107,7 +107,7 @@ export default function Copyrights() {
                 {/* Date and role */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4 sm:mb-5">
                   <span className="text-[10px] text-[#DA291C] uppercase tracking-[0.2em]">
-                    {copyright.date}
+                    {copyrights.date}
                   </span>
                   <div
                     className="inline-flex self-start sm:self-auto px-3 py-1.5 rounded-full text-[10px] font-medium tracking-wide border"
@@ -117,7 +117,7 @@ export default function Copyrights() {
                       color: "#DA291C",
                     }}
                   >
-                    {copyright.role}
+                    {copyrights.role}
                   </div>
                 </div>
 
@@ -130,7 +130,7 @@ export default function Copyrights() {
                     viewport={{ once: true }}
                     className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3 tracking-tight leading-tight"
                   >
-                    {copyright.title}
+                    {copyrights.title}
                   </motion.h3>
 
                   <motion.p
@@ -140,7 +140,7 @@ export default function Copyrights() {
                     viewport={{ once: true }}
                     className="text-sm text-zinc-500 mb-2 sm:mb-3"
                   >
-                    {copyright.organization}
+                    {copyrights.organization}
                   </motion.p>
 
                   <motion.p
@@ -150,7 +150,7 @@ export default function Copyrights() {
                     viewport={{ once: true }}
                     className="text-xs text-zinc-600"
                   >
-                    Registration No. {copyright.registrationNo}
+                    Registration No. {copyrights.registrationNo}
                   </motion.p>
                 </div>
               </div>

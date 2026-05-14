@@ -85,9 +85,9 @@ export default function Certifications() {
 
         {/* Certifications List */}
         <div className="space-y-5 sm:space-y-6">
-          {certifications.map((cert, index) => (
+          {certifications.map((certifications, index) => (
             <motion.div
-              key={`${cert.provider}-${cert.title}`}
+              key={`${certifications.provider}-${certifications.title}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: index * 0.12 }}
@@ -113,12 +113,12 @@ export default function Certifications() {
                 {/* Date & Mode */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-4">
                   <span className="text-[10px] text-[#DA291C] uppercase tracking-[0.2em]">
-                    {cert.date}
+                    {certifications.date}
                   </span>
-                  <span className="text-xs text-zinc-600 sm:hidden">{cert.mode}</span>
+                  <span className="text-xs text-zinc-600 sm:hidden">{certifications.mode}</span>
                   <span className="hidden sm:inline text-zinc-600">·</span>
                   <span className="hidden sm:inline text-xs text-zinc-600">
-                    {cert.mode}
+                    {certifications.mode}
                   </span>
                 </div>
 
@@ -131,7 +131,7 @@ export default function Certifications() {
                     viewport={{ once: true }}
                     className="text-lg sm:text-xl font-semibold text-white mb-2 tracking-tight leading-tight"
                   >
-                    {cert.title}
+                    {certifications.title}
                   </motion.h3>
 
                   <motion.p
@@ -141,7 +141,7 @@ export default function Certifications() {
                     viewport={{ once: true }}
                     className="text-sm text-zinc-500 mb-4"
                   >
-                    {cert.provider}
+                    {certifications.provider}
                   </motion.p>
 
                   <motion.p
@@ -151,7 +151,7 @@ export default function Certifications() {
                     viewport={{ once: true }}
                     className="text-sm text-zinc-400 leading-relaxed"
                   >
-                    {cert.description}
+                    {certifications.description}
                   </motion.p>
                 </div>
               </div>

@@ -3,13 +3,13 @@ export const navItems = [
   { name: "About", href: "#about" },
   { name: "Education", href: "#education" },
   { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
   { name: "Awards", href: "#awards" },
+  { name: "Publications", href: "#publications" },
   { name: "Copyrights", href: "#copyrights" },
+  { name: "Projects", href: "#projects" },
   { name: "Certifications", href: "#certifications" },
   { name: "Volunteer", href: "#volunteer" },
-  { name: "Research", href: "#research" },
-  { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
 ];
 

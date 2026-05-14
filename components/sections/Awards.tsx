@@ -139,9 +139,9 @@ export default function Awards() {
 
         {/* Awards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {awards.map((award, index) => (
+          {awards.map((awards, index) => (
             <motion.div
-              key={award.title}
+              key={awards.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.08 }}
@@ -160,7 +160,7 @@ export default function Awards() {
                 <div
                   className="absolute -inset-6 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"
                   style={{
-                    background: `radial-gradient(ellipse at top, ${award.accentColor}06, transparent 60%)`,
+                    background: `radial-gradient(ellipse at top, ${awards.accentColor}06, transparent 60%)`,
                   }}
                 />
 
@@ -170,15 +170,15 @@ export default function Awards() {
                     <span
                       className="px-2.5 py-1 rounded-full text-[9px] font-medium tracking-wide border"
                       style={{
-                        backgroundColor: `${award.accentColor}08`,
-                        borderColor: `${award.accentColor}20`,
-                        color: award.accentColor,
+                        backgroundColor: `${awards.accentColor}08`,
+                        borderColor: `${awards.accentColor}20`,
+                        color: awards.accentColor,
                       }}
                     >
-                      {award.type}
+                      {awards.type}
                     </span>
                     <span className="text-[10px] text-zinc-600 uppercase tracking-widest">
-                      {award.date}
+                      {awards.date}
                     </span>
                   </div>
 
@@ -190,7 +190,7 @@ export default function Awards() {
                     viewport={{ once: true }}
                     className="text-base sm:text-base font-semibold text-white tracking-tight leading-tight"
                   >
-                    {award.title}
+                    {awards.title}
                   </motion.h3>
 
                   {/* Organization */}
@@ -201,7 +201,7 @@ export default function Awards() {
                     viewport={{ once: true }}
                     className="text-xs sm:text-xs text-zinc-500"
                   >
-                    {award.organization}
+                    {awards.organization}
                   </motion.p>
 
                   {/* Description */}
@@ -212,7 +212,7 @@ export default function Awards() {
                     viewport={{ once: true }}
                     className="text-xs text-zinc-600 leading-relaxed line-clamp-3 sm:line-clamp-3"
                   >
-                    {award.description}
+                    {awards.description}
                   </motion.p>
                 </div>
               </div>

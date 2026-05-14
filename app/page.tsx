@@ -7,7 +7,7 @@ import Copyrights from "@/components/sections/Copyrights";
 import Certifications from "@/components/sections/Certifications";
 import Skills from "@/components/sections/Skills";
 import Volunteer from "@/components/sections/Volunteer";
-import Research from "@/components/sections/Research";
+import Publications from "@/components/sections/Publications";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
 
@@ -19,12 +19,12 @@ export default function Home() {
       <Education />
       <Experience />
       <Awards />
+      <Publications />
       <Copyrights />
-      <Certifications />
-      <Skills />
-      <Volunteer />
-      <Research />
       <Projects />
+      <Certifications />
+      <Volunteer />
+      <Skills />
       <Contact />
     </>
   );
