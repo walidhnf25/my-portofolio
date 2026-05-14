@@ -34,7 +34,7 @@ export default function Education() {
       </div>
 
       <div className="mx-auto max-w-5xl px-6">
-        {/* Section Header - Consistent with all sections */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,10 +76,10 @@ export default function Education() {
           </motion.p>
         </motion.div>
 
-        {/* Education Timeline - Journey style matching Experience */}
+        {/* Education Cards - Clean layout on mobile, journey style on desktop */}
         <div className="relative">
-          {/* Journey line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 -translate-x-1/2 hidden md:block">
+          {/* Journey line - only visible on lg */}
+          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 -translate-x-1/2 hidden lg:block">
             <div className="relative h-full w-px bg-linear-to-b from-[#DA291C]/30 via-[#DA291C]/15 to-[#FFD700]/15" />
 
             {/* Nodes */}
@@ -88,7 +88,7 @@ export default function Education() {
                 key={index}
                 className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2"
                 style={{
-                  top: `${20 + index * 40}%`,
+                  top: `${25 + index * 38}%`,
                   backgroundColor: educationData[index].accentColor,
                   borderColor: educationData[index].accentColor,
                   boxShadow: `0 0 12px ${educationData[index].accentColor}66`,
@@ -98,7 +98,7 @@ export default function Education() {
           </div>
 
           {/* Education cards */}
-          <div className="space-y-16 md:space-y-24">
+          <div className="space-y-8 lg:space-y-24">
             {educationData.map((edu, index) => (
               <motion.div
                 key={edu.institution}
@@ -106,20 +106,15 @@ export default function Education() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: index * 0.15 }}
                 viewport={{ once: true }}
-                className={`relative ${index === 0 ? "md:pr-[52%]" : "md:pl-[52%] md:text-right"}`}
+                className={`relative ${
+                  index === 0
+                    ? "lg:pr-[52%]"
+                    : "lg:pl-[52%] lg:text-right"
+                }`}
               >
-                {/* Timeline node for mobile */}
+                {/* Card - clean on mobile */}
                 <div
-                  className="absolute left-8 top-0 -translate-y-1 w-3 h-3 rounded-full border-2 md:hidden"
-                  style={{
-                    backgroundColor: edu.accentColor,
-                    borderColor: edu.accentColor,
-                  }}
-                />
-
-                {/* Card */}
-                <div
-                  className="relative ml-12 md:ml-0 rounded-2xl p-8 border transition-all duration-500 hover:border-white/8"
+                  className="relative rounded-2xl p-6 sm:p-8 border transition-all duration-500 hover:border-white/8"
                   style={{
                     background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
                     borderColor: "rgba(255,255,255,0.04)",
@@ -133,7 +128,7 @@ export default function Education() {
                     }}
                   />
 
-                  <div className={`space-y-5 ${index === 0 ? "" : "md:text-right"}`}>
+                  <div className={`space-y-5`}>
                     {/* Period */}
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
@@ -166,7 +161,7 @@ export default function Education() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                       viewport={{ once: true }}
-                      className={`space-y-1 ${index === 0 ? "" : "md:items-end"}`}
+                      className="space-y-1"
                     >
                       <p className="text-sm text-zinc-400">{edu.institution}</p>
                       <p className="text-xs text-zinc-600">{edu.location}</p>
@@ -189,7 +184,6 @@ export default function Education() {
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                       viewport={{ once: true }}
-                      className={`${index === 0 ? "" : "md:flex md:justify-end"}`}
                     >
                       <div
                         className="inline-flex px-4 py-1.5 rounded-full text-[10px] font-medium tracking-wide border"
@@ -215,7 +209,7 @@ export default function Education() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-24 flex justify-center"
+          className="mt-20 flex justify-center"
         >
           <div className="h-px w-24 bg-linear-to-r from-transparent via-[#DA291C]/25 to-transparent" />
         </motion.div>

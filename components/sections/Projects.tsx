@@ -50,7 +50,7 @@ export default function Projects() {
       </div>
 
       <div className="mx-auto max-w-5xl px-6">
-        {/* Section Header - Consistent with About, Education, Research */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,8 +92,8 @@ export default function Projects() {
           </motion.p>
         </motion.div>
 
-        {/* Projects Grid - 2x2 layout */}
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -105,7 +105,7 @@ export default function Projects() {
             >
               {/* Card */}
               <div
-                className="relative rounded-2xl p-8 border transition-all duration-500 group-hover:border-white/8"
+                className="relative rounded-2xl p-6 sm:p-8 border transition-all duration-500 group-hover:border-white/8"
                 style={{
                   background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
                   borderColor: "rgba(255,255,255,0.04)",
@@ -120,14 +120,14 @@ export default function Projects() {
                 />
 
                 {/* Header row with status */}
-                <div className="flex items-start justify-between mb-6">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-5 sm:mb-6">
                   <div>
                     <motion.span
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                       viewport={{ once: true }}
-                      className="text-[10px] text-zinc-600 uppercase tracking-[0.15em]"
+                      className="text-[10px] text-zinc-600 uppercase tracking-widest"
                     >
                       {project.category}
                     </motion.span>
@@ -135,7 +135,7 @@ export default function Projects() {
 
                   {/* Status badge */}
                   <div
-                    className="px-3 py-1 rounded-full text-[10px] font-medium tracking-wide border"
+                    className="px-3 py-1 rounded-full text-[10px] font-medium tracking-wide border shrink-0"
                     style={{
                       backgroundColor:
                         project.status === "Production"
@@ -158,7 +158,7 @@ export default function Projects() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-xl font-semibold text-white mb-4 tracking-tight leading-tight"
+                  className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 tracking-tight leading-tight"
                 >
                   {project.title}
                 </motion.h3>
@@ -169,7 +169,7 @@ export default function Projects() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-sm text-zinc-500 leading-relaxed mb-6"
+                  className="text-sm text-zinc-500 leading-relaxed mb-4 sm:mb-5"
                 >
                   {project.description}
                 </motion.p>

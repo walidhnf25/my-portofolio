@@ -32,7 +32,7 @@ export default function Research() {
       </div>
 
       <div className="mx-auto max-w-5xl px-6">
-        {/* Section Header - Consistent with About & Education */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export default function Research() {
         </motion.div>
 
         {/* Publications List */}
-        <div className="space-y-5">
+        <div className="space-y-6">
           {publications.map((pub, index) => (
             <motion.div
               key={pub.title}
@@ -87,7 +87,7 @@ export default function Research() {
             >
               {/* Card */}
               <div
-                className="relative rounded-2xl p-8 border transition-all duration-500 group-hover:border-white/8"
+                className="relative rounded-2xl p-6 sm:p-8 border transition-all duration-500 group-hover:border-white/8"
                 style={{
                   background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
                   borderColor: "rgba(255,255,255,0.04)",
@@ -101,58 +101,56 @@ export default function Research() {
                   }}
                 />
 
-                <div className="flex flex-col lg:flex-row lg:items-start gap-8">
-                  {/* Year indicator - clean and prominent */}
-                  <div className="lg:w-28 shrink-0 flex flex-row lg:flex-col items-center lg:items-start gap-4 lg:gap-2">
-                    <span className="text-2xl lg:text-3xl font-bold text-[#DA291C] tracking-tight">
-                      {pub.year}
-                    </span>
-                    <div className="hidden lg:block w-12 h-px bg-[#DA291C]/30" />
-                    <span className="text-[9px] uppercase tracking-[0.2em] text-zinc-600">
-                      Published
-                    </span>
-                  </div>
+                {/* Year indicator - stacked on mobile, row on desktop */}
+                <div className="flex items-center gap-3 mb-5 sm:mb-6">
+                  <span className="text-2xl sm:text-3xl font-bold text-[#DA291C] tracking-tight">
+                    {pub.year}
+                  </span>
+                  <div className="w-8 sm:w-12 h-px bg-[#DA291C]/30" />
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-zinc-600">
+                    Published
+                  </span>
+                </div>
 
-                  {/* Content */}
-                  <div className="flex-1">
-                    <motion.h3
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="text-lg md:text-xl font-semibold text-white mb-3 tracking-tight leading-tight"
-                    >
-                      {pub.title}
-                    </motion.h3>
+                {/* Content */}
+                <div>
+                  <motion.h3
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="text-lg sm:text-xl font-semibold text-white mb-3 tracking-tight leading-tight"
+                  >
+                    {pub.title}
+                  </motion.h3>
 
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="text-sm text-zinc-500 mb-5"
-                    >
-                      {pub.journal}
-                    </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="text-sm text-zinc-500 mb-4 sm:mb-5"
+                  >
+                    {pub.journal}
+                  </motion.p>
 
-                    {/* Tags */}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.35 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="flex flex-wrap gap-2"
-                    >
-                      {pub.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-[10px] px-3 py-1 rounded-full bg-white/3 border border-white/6 text-zinc-500"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </motion.div>
-                  </div>
+                  {/* Tags */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.35 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex flex-wrap gap-2"
+                  >
+                    {pub.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[10px] px-3 py-1 rounded-full bg-white/3 border border-white/6 text-zinc-500"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
@@ -168,24 +166,24 @@ export default function Research() {
           className="mt-16 relative"
         >
           <div
-            className="relative rounded-2xl p-10 border"
+            className="relative rounded-2xl p-8 sm:p-10 border"
             style={{
               background: "linear-gradient(145deg, rgba(10,10,10,0.9), rgba(6,6,6,0.95))",
               borderColor: "rgba(255,255,255,0.04)",
             }}
           >
             {/* Decorative quote mark */}
-            <div className="absolute top-8 left-8 text-6xl font-serif text-[#DA291C]/20 leading-none select-none">
+            <div className="absolute top-6 left-6 sm:top-8 sm:left-8 text-5xl sm:text-6xl font-serif text-[#DA291C]/20 leading-none select-none">
               &ldquo;
             </div>
 
-            <div className="relative pl-8">
+            <div className="relative pl-10 sm:pl-12">
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="text-lg md:text-xl text-white font-light leading-relaxed mb-6"
+                className="text-base sm:text-lg md:text-xl text-white font-light leading-relaxed mb-5 sm:mb-6"
               >
                 I believe in conducting research that bridges theoretical frameworks with practical applications, focusing on understanding technology adoption in diverse contexts and leveraging AI and IoT to address real-world challenges.
               </motion.p>
@@ -197,7 +195,7 @@ export default function Research() {
                 viewport={{ once: true }}
                 className="flex items-center gap-3"
               >
-                <div className="w-8 h-px bg-[#DA291C]/40" />
+                <div className="w-6 sm:w-8 h-px bg-[#DA291C]/40" />
                 <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-600">
                   Research Philosophy
                 </span>

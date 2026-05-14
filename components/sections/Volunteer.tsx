@@ -105,7 +105,7 @@ export default function Volunteer() {
         </motion.div>
 
         {/* Volunteer experiences grid - 2 columns */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {volunteerExperiences.map((vol, index) => (
             <motion.div
               key={`${vol.organization}-${vol.role}`}
@@ -117,7 +117,7 @@ export default function Volunteer() {
             >
               {/* Card */}
               <div
-                className="relative rounded-2xl p-8 border transition-all duration-500 group-hover:border-white/8 h-full"
+                className="relative rounded-2xl p-6 sm:p-8 border transition-all duration-500 group-hover:border-white/8 h-full"
                 style={{
                   background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
                   borderColor: "rgba(255,255,255,0.04)",

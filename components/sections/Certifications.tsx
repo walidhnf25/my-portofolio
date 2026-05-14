@@ -41,7 +41,7 @@ export default function Certifications() {
       </div>
 
       <div className="mx-auto max-w-4xl px-6">
-        {/* Section Header - Consistent with all sections */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +84,7 @@ export default function Certifications() {
         </motion.div>
 
         {/* Certifications List */}
-        <div className="space-y-6">
+        <div className="space-y-5 sm:space-y-6">
           {certifications.map((cert, index) => (
             <motion.div
               key={`${cert.provider}-${cert.title}`}
@@ -96,7 +96,7 @@ export default function Certifications() {
             >
               {/* Card */}
               <div
-                className="relative rounded-2xl p-8 border transition-all duration-500 group-hover:border-white/8"
+                className="relative rounded-2xl p-6 sm:p-8 border transition-all duration-500 group-hover:border-white/8"
                 style={{
                   background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
                   borderColor: "rgba(255,255,255,0.04)",
@@ -110,51 +110,49 @@ export default function Certifications() {
                   }}
                 />
 
-                <div className="flex flex-col lg:flex-row lg:items-start gap-6">
-                  {/* Date & Provider */}
-                  <div className="lg:w-40 shrink-0">
-                    <span className="text-[10px] text-[#DA291C] uppercase tracking-[0.2em]">
-                      {cert.date}
-                    </span>
-                    <div className="mt-2">
-                      <span className="text-xs text-zinc-600">
-                        {cert.mode}
-                      </span>
-                    </div>
-                  </div>
+                {/* Date & Mode */}
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-4">
+                  <span className="text-[10px] text-[#DA291C] uppercase tracking-[0.2em]">
+                    {cert.date}
+                  </span>
+                  <span className="text-xs text-zinc-600 sm:hidden">{cert.mode}</span>
+                  <span className="hidden sm:inline text-zinc-600">·</span>
+                  <span className="hidden sm:inline text-xs text-zinc-600">
+                    {cert.mode}
+                  </span>
+                </div>
 
-                  {/* Content */}
-                  <div className="flex-1">
-                    <motion.h3
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="text-lg md:text-xl font-semibold text-white mb-2 tracking-tight leading-tight"
-                    >
-                      {cert.title}
-                    </motion.h3>
+                {/* Content */}
+                <div>
+                  <motion.h3
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="text-lg sm:text-xl font-semibold text-white mb-2 tracking-tight leading-tight"
+                  >
+                    {cert.title}
+                  </motion.h3>
 
-                    <motion.p
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="text-sm text-zinc-500 mb-4"
-                    >
-                      {cert.provider}
-                    </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="text-sm text-zinc-500 mb-4"
+                  >
+                    {cert.provider}
+                  </motion.p>
 
-                    <motion.p
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="text-sm text-zinc-400 leading-relaxed"
-                    >
-                      {cert.description}
-                    </motion.p>
-                  </div>
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="text-sm text-zinc-400 leading-relaxed"
+                  >
+                    {cert.description}
+                  </motion.p>
                 </div>
               </div>
             </motion.div>

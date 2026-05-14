@@ -95,7 +95,7 @@ export default function Awards() {
       </div>
 
       <div className="mx-auto max-w-5xl px-6">
-        {/* Section Header - Consistent with all sections */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -137,8 +137,8 @@ export default function Awards() {
           </motion.p>
         </motion.div>
 
-        {/* Awards Grid - 3 columns for better visibility */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Awards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {awards.map((award, index) => (
             <motion.div
               key={award.title}
@@ -150,7 +150,7 @@ export default function Awards() {
             >
               {/* Card */}
               <div
-                className="relative rounded-2xl p-6 border transition-all duration-500 group-hover:border-white/8 h-full"
+                className="relative rounded-2xl p-5 sm:p-6 border transition-all duration-500 group-hover:border-white/8 h-full"
                 style={{
                   background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
                   borderColor: "rgba(255,255,255,0.04)",
@@ -164,9 +164,9 @@ export default function Awards() {
                   }}
                 />
 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {/* Type badge & Date */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-2">
                     <span
                       className="px-2.5 py-1 rounded-full text-[9px] font-medium tracking-wide border"
                       style={{
@@ -177,7 +177,7 @@ export default function Awards() {
                     >
                       {award.type}
                     </span>
-                    <span className="text-[10px] text-zinc-600 uppercase tracking-[0.1em]">
+                    <span className="text-[10px] text-zinc-600 uppercase tracking-widest">
                       {award.date}
                     </span>
                   </div>
@@ -188,7 +188,7 @@ export default function Awards() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.15 + index * 0.05 }}
                     viewport={{ once: true }}
-                    className="text-base font-semibold text-white tracking-tight leading-tight"
+                    className="text-base sm:text-base font-semibold text-white tracking-tight leading-tight"
                   >
                     {award.title}
                   </motion.h3>
@@ -199,7 +199,7 @@ export default function Awards() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 + index * 0.05 }}
                     viewport={{ once: true }}
-                    className="text-xs text-zinc-500"
+                    className="text-xs sm:text-xs text-zinc-500"
                   >
                     {award.organization}
                   </motion.p>
@@ -210,7 +210,7 @@ export default function Awards() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.25 + index * 0.05 }}
                     viewport={{ once: true }}
-                    className="text-xs text-zinc-600 leading-relaxed line-clamp-3"
+                    className="text-xs text-zinc-600 leading-relaxed line-clamp-3 sm:line-clamp-3"
                   >
                     {award.description}
                   </motion.p>
