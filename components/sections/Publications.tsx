@@ -4,22 +4,92 @@ import { motion } from "framer-motion";
 
 const publications = [
   {
-    title: "Analysis of Technology Acceptance Model (TAM) and Information System Success Model (ISSM) on Intention to Use E-Government in Indonesia",
-    year: "2024",
-    journal: "Procedia Computer Science",
-    tags: ["E-Government", "TAM", "Information Systems"],
-  },
-  {
-    title: "Acceptance of AI-Based Application for Digital Health: A Study of Factors Affecting Intention to Use",
-    year: "2024",
-    journal: "IEEE Conference",
-    tags: ["AI", "Digital Health", "Technology Acceptance"],
-  },
-  {
-    title: "Machine Learning Approach for IoT-Based Air Quality Monitoring System",
+    title: "Pose-Based Action Recognition in Tennis Using MediaPipe and LSTM",
     year: "2025",
-    journal: "Sensors",
-    tags: ["Machine Learning", "IoT", "Air Quality"],
+    journal: "IJoICT (International Journal on Information and Communication Technology), Vol. 11, No. 2, pp. 118–135",
+    publisher: "Telkom University",
+    authors: "Walid Hanif Ataullah, Isa Mulia Insan, Sheina Fathur Rahman",
+    role: "1st Author",
+    indexing: "SINTA 3",
+    tags: ["MediaPipe", "LSTM", "Pose Recognition"],
+    link: "https://journals.telkomuniversity.ac.id/ijoict/article/view/9622",
+  },
+  {
+    title: "Optimizing Barista Shift Scheduling in Multi-Branches Through System Development Using Design Thinking",
+    year: "2025",
+    journal: "ICoSEIT 2025",
+    publisher: "IEEE",
+    authors: "Walid Hanif Ataullah, Rahmat Yasirandi, Rahmat Panji Wirayudha, Arga Ramadhana, Rahmat Indra Pratama Anom, Kobthong Ladkoom",
+    role: "1st Author & Presenter",
+    indexing: "Scopus",
+    tags: ["Design Thinking", "Scheduling", "SUS Score 87.3"],
+    link: "https://ieeexplore.ieee.org/abstract/document/11290953",
+  },
+  {
+    title: "Optimized Semantic Segmentation for Fish Detection Using DeepLabV3 and MobileNetV3 on Resource-Constrained Systems",
+    year: "2025",
+    journal: "ICSECS 2025",
+    publisher: "IEEE",
+    authors: "Jonathan Arya Wibowo, Walid Hanif Ataullah, Isa Mulia Insan, Sheina Fathur Rahman, Muhammad Al Makky, Rio Guntur Utomo",
+    role: "2nd Author & Presenter",
+    indexing: "Scopus",
+    tags: ["DeepLabV3", "MobileNetV3", "Semantic Segmentation", "Dice 0.6853"],
+    link: "https://ieeexplore.ieee.org/abstract/document/11279067",
+  },
+  {
+    title: "Frontend Design and Implementation of a Research Dashboard for the PPM Directorate Using the Agile Scrum Methodology",
+    year: "2025",
+    journal: "ICoSEIT 2025",
+    publisher: "IEEE",
+    authors: "Sheina Fathur Rahman, Walid Hanif Ataullah, Rahmat Yasirandi, Jonathan Arya Wibowo, Isa Mulia Insan, Muhamad Al Makky",
+    role: "2nd Author",
+    indexing: "Scopus",
+    tags: ["Agile Scrum", "Research Dashboard", "Frontend"],
+    link: "https://ieeexplore.ieee.org/abstract/document/11290847",
+  },
+  {
+    title: "A Digital Solution for Zoo Health Management: Ensuring Continuity of Care Without In-House Veterinarians",
+    year: "2025",
+    journal: "ICoSEIT 2025",
+    publisher: "IEEE",
+    authors: "Sheina Fathur Rahman, Fernando Putra Silalahi, Rahmat Yasirandi, Muhammad Al Makky, Noor Alamsyah, Walid Hanif Ataullah",
+    role: "6th Author",
+    indexing: "Scopus",
+    tags: ["Zoo Health", "Mobile App", "Animal Health Monitoring"],
+    link: "https://ieeexplore.ieee.org/abstract/document/11290765/",
+  },
+  {
+    title: "Design and Implementation of Real-Time Monitoring System for Bird Tracking Applications",
+    year: "2025",
+    journal: "ICSECS 2025",
+    publisher: "IEEE",
+    authors: "Jonathan Arya Wibowo, Muharman Lubis, Rio Guntur Utomo, Walid Hanif Ataullah, Sheina Fathur Rahman, Isa Mulia Insan",
+    role: "4th Author",
+    indexing: "Scopus",
+    tags: ["GPS Tracking", "Bird Monitoring", "GSM Module"],
+    link: "https://ieeexplore.ieee.org/abstract/document/11279236",
+  },
+  {
+    title: "Performance and Reliability Analysis of 4G-Based Flight Controllers in UAV Control",
+    year: "2025",
+    journal: "ICCTEIE 2025",
+    publisher: "IEEE",
+    authors: "Riska Yucha Septiyanti, Rendy Munadi, Basuki Rahmat, Walid Hanif Ataullah, Athif Fadheel Atharahman, Jonathan Arya Wibowo",
+    role: "4th Author",
+    indexing: "Scopus",
+    tags: ["4G LTE", "UAV", "MAVLink", "Latency Analysis"],
+    link: "https://ieeexplore.ieee.org/abstract/document/11341803",
+  },
+  {
+    title: "Multi-Purpose Security Camera for E-Cigarette Smoke Detection With Semantic Segmentation",
+    year: "2024",
+    journal: "ICOIACT 2024",
+    publisher: "IEEE",
+    authors: "Walid Hanif Ataullah, Aji Gautama Putrada, Villy Satria Praditha",
+    role: "1st Author & Presenter",
+    indexing: "Scopus",
+    tags: ["DeepLabV3", "MobileNetV2", "Smoke Detection", "AUC 0.90"],
+    link: "https://ieeexplore.ieee.org/abstract/document/10913184",
   },
 ];
 
@@ -102,14 +172,24 @@ export default function Publications() {
                 />
 
                 {/* Year indicator - stacked on mobile, row on desktop */}
-                <div className="flex items-center gap-3 mb-5 sm:mb-6">
+                <div className="flex flex-wrap items-center gap-3 mb-4">
                   <span className="text-2xl sm:text-3xl font-bold text-[#DA291C] tracking-tight">
                     {pub.year}
                   </span>
                   <div className="w-8 sm:w-12 h-px bg-[#DA291C]/30" />
-                  <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-zinc-600">
-                    Published
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-600">
+                    {pub.publisher}
                   </span>
+                  {pub.indexing && (
+                    <span className="text-[10px] px-2.5 py-1 rounded-full bg-[#DA291C]/10 border border-[#DA291C]/20 text-[#DA291C]">
+                      {pub.indexing}
+                    </span>
+                  )}
+                  {pub.role && (
+                    <span className="text-[10px] px-2.5 py-1 rounded-full bg-white/5 border border-white/8 text-zinc-400">
+                      {pub.role}
+                    </span>
+                  )}
                 </div>
 
                 {/* Content */}
@@ -119,7 +199,7 @@ export default function Publications() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
                     viewport={{ once: true }}
-                    className="text-lg sm:text-xl font-semibold text-white mb-3 tracking-tight leading-tight"
+                    className="text-lg sm:text-xl font-semibold text-white mb-2 tracking-tight leading-tight"
                   >
                     {pub.title}
                   </motion.h3>
@@ -129,16 +209,26 @@ export default function Publications() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                     viewport={{ once: true }}
-                    className="text-sm text-zinc-500 mb-4 sm:mb-5"
+                    className="text-sm text-zinc-500 mb-1"
                   >
                     {pub.journal}
+                  </motion.p>
+
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.35 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="text-xs text-zinc-600 mb-4"
+                  >
+                    {pub.authors}
                   </motion.p>
 
                   {/* Tags */}
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.35 + index * 0.1 }}
+                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                     viewport={{ once: true }}
                     className="flex flex-wrap gap-2"
                   >
@@ -151,6 +241,25 @@ export default function Publications() {
                       </span>
                     ))}
                   </motion.div>
+
+                  {/* Link */}
+                  {pub.link && (
+                    <motion.a
+                      href={pub.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.45 + index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="inline-flex items-center gap-2 mt-4 text-xs text-[#DA291C] hover:text-[#e64a3a] transition-colors"
+                    >
+                      View Publication
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </motion.div>
