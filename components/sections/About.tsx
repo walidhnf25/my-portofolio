@@ -6,9 +6,9 @@ import { TrendingUpIcon, AwardIcon, CodeIcon, FileBadgeIcon, GraduationCapIcon }
 const stats = [
   { icon: CodeIcon, value: "12+", label: "Projects" },
   { icon: AwardIcon, value: "8+", label: "Awards" },
-  { icon: FileBadgeIcon, value: "3+", label: "Copyrights" },
-  { icon: GraduationCapIcon, value: "3+", label: "Certifications" },
-  { icon: TrendingUpIcon, value: "3+", label: "Publications" },
+  { icon: FileBadgeIcon, value: "2+", label: "Copyrights" },
+  { icon: GraduationCapIcon, value: "2+", label: "Certifications" },
+  { icon: TrendingUpIcon, value: "7+", label: "Publications" },
 ];
 
 export default function About() {
