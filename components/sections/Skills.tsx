@@ -114,18 +114,12 @@ export default function Skills() {
                 />
 
                 {/* Category Title */}
-                <div className="flex items-center gap-3 mb-5">
-                  <div
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: category.accentColor }}
-                  />
-                  <h3
-                    className="text-sm font-semibold tracking-tight"
-                    style={{ color: category.accentColor }}
-                  >
-                    {category.title}
-                  </h3>
-                </div>
+                <h3
+                  className="text-sm font-semibold tracking-tight mb-5"
+                  style={{ color: category.accentColor }}
+                >
+                  {category.title}
+                </h3>
 
                 {/* Skills Tags */}
                 <div className="flex flex-wrap gap-2">
