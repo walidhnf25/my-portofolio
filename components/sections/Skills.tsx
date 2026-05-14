@@ -99,7 +99,7 @@ export default function Skills() {
             >
               {/* Card */}
               <div
-                className="relative rounded-2xl p-7 border transition-all duration-500 group-hover:border-white/8"
+                className="relative rounded-2xl p-7 border transition-all duration-500 group-hover:border-white/8 flex flex-col h-full"
                 style={{
                   background: "linear-gradient(145deg, rgba(10,10,10,0.9), rgba(6,6,6,0.95))",
                   borderColor: "rgba(255,255,255,0.04)",
