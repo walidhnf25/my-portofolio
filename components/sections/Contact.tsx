@@ -8,8 +8,8 @@ const contactMethods = [
   {
     icon: MailIcon,
     label: "Email",
-    value: "walidhanif25@gmail.com",
-    href: "mailto:walidhanif25@gmail.com",
+    value: "walidhnf12@gmail.com",
+    href: "mailto:walidhnf12@gmail.com",
   },
   {
     icon: LinkedinIcon,
@@ -20,7 +20,7 @@ const contactMethods = [
   {
     icon: MessageCircleIcon,
     label: "WhatsApp",
-    value: "+62 819 1111 1111",
+    value: "+62 822 1928 2003",
     href: socialLinks.whatsapp,
   },
   {
