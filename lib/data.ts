@@ -14,10 +14,10 @@ export const navItems = [
 ];
 
 export const socialLinks = {
-  linkedin: "https://www.linkedin.com/in/walid-hanif-ataullah-6baa7b245/",
-  scholar: "https://scholar.google.com/",
-  email: "mailto:walidhanif25@gmail.com",
-  whatsapp: "https://wa.me/6281911111111",
+  linkedin: "https://www.linkedin.com/in/walid-hanif-ataullah25/",
+  scholar: "https://scholar.google.com/citations?user=JYcwa0sAAAAJ&hl=id/",
+  email: "mailto:walidhnf12@gmail.com",
+  whatsapp: "https://wa.me/6282219282003",
 };
 
 export const researchInterests = [

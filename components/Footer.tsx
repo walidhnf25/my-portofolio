@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-white/[0.04] flex flex-col md:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-zinc-700">© 2025 Walid Hanif Ataullah</p>
+          <p className="text-xs text-zinc-700">© 2026 Walid Hanif Ataullah</p>
           <p className="text-xs text-zinc-700">Built with Next.js & Tailwind</p>
         </div>
       </div>
