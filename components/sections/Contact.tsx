@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useRef } from "react";
 import { MailIcon, LinkedinIcon, MessageCircleIcon, MapPinIcon } from "@/components/icons";
 import { socialLinks } from "@/lib/data";
 
@@ -31,7 +32,49 @@ const contactMethods = [
   },
 ];
 
+type FormStatus = "idle" | "loading" | "success" | "error";
+
 export default function Contact() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      subject: formData.get("subject") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message");
+      }
+
+      formRef.current?.reset();
+      setStatus("success");
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : "Something went wrong");
+    }
+  };
+
   return (
     <section id="contact" className="relative py-40 overflow-hidden">
       {/* Subtle ambient background */}
@@ -100,49 +143,102 @@ export default function Contact() {
               }}
             >
               <h3 className="text-lg font-semibold text-white mb-5 sm:mb-6">Send a Message</h3>
-              <form className="space-y-4 sm:space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+              {status === "success" ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-12"
+                >
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500/10 flex items-center justify-center">
+                    <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-semibold text-white mb-2">Message Sent!</h4>
+                  <p className="text-sm text-zinc-500 mb-4">Thank you for reaching out. I&apos;ll get back to you soon.</p>
+                  <button
+                    onClick={() => setStatus("idle")}
+                    className="text-sm text-[#DA291C] hover:text-[#e64a3a] transition-colors"
+                  >
+                    Send another message
+                  </button>
+                </motion.div>
+              ) : (
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                  {status === "error" && (
+                    <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20">
+                      <p className="text-sm text-red-400">{errorMessage}</p>
+                    </div>
+                  )}
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs text-zinc-500 mb-2">Name *</label>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                        disabled={status === "loading"}
+                        className="w-full px-4 py-3 rounded-lg bg-white/3 border border-white/6 text-white text-sm placeholder:text-zinc-700 focus:outline-none focus:border-[#DA291C]/30 transition-colors disabled:opacity-50"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-zinc-500 mb-2">Email *</label>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                        disabled={status === "loading"}
+                        className="w-full px-4 py-3 rounded-lg bg-white/3 border border-white/6 text-white text-sm placeholder:text-zinc-700 focus:outline-none focus:border-[#DA291C]/30 transition-colors disabled:opacity-50"
+                      />
+                    </div>
+                  </div>
                   <div>
-                    <label className="block text-xs text-zinc-500 mb-2">Name</label>
+                    <label className="block text-xs text-zinc-500 mb-2">Subject</label>
                     <input
                       type="text"
-                      placeholder="Your name"
-                      className="w-full px-4 py-3 rounded-lg bg-white/3 border border-white/6 text-white text-sm placeholder:text-zinc-700 focus:outline-none focus:border-[#DA291C]/30 transition-colors"
+                      name="subject"
+                      placeholder="Collaboration opportunity"
+                      disabled={status === "loading"}
+                      className="w-full px-4 py-3 rounded-lg bg-white/3 border border-white/6 text-white text-sm placeholder:text-zinc-700 focus:outline-none focus:border-[#DA291C]/30 transition-colors disabled:opacity-50"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs text-zinc-500 mb-2">Email</label>
-                    <input
-                      type="email"
-                      placeholder="you@example.com"
-                      className="w-full px-4 py-3 rounded-lg bg-white/3 border border-white/6 text-white text-sm placeholder:text-zinc-700 focus:outline-none focus:border-[#DA291C]/30 transition-colors"
+                    <label className="block text-xs text-zinc-500 mb-2">Message *</label>
+                    <textarea
+                      name="message"
+                      rows={4}
+                      placeholder="Your message"
+                      required
+                      disabled={status === "loading"}
+                      className="w-full px-4 py-3 rounded-lg bg-white/3 border border-white/6 text-white text-sm placeholder:text-zinc-700 focus:outline-none focus:border-[#DA291C]/30 transition-colors resize-none disabled:opacity-50"
                     />
                   </div>
-                </div>
-                <div>
-                  <label className="block text-xs text-zinc-500 mb-2">Subject</label>
-                  <input
-                    type="text"
-                    placeholder="Collaboration opportunity"
-                    className="w-full px-4 py-3 rounded-lg bg-white/3 border border-white/6 text-white text-sm placeholder:text-zinc-700 focus:outline-none focus:border-[#DA291C]/30 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs text-zinc-500 mb-2">Message</label>
-                  <textarea
-                    rows={4}
-                    placeholder="Your message"
-                    className="w-full px-4 py-3 rounded-lg bg-white/3 border border-white/6 text-white text-sm placeholder:text-zinc-700 focus:outline-none focus:border-[#DA291C]/30 transition-colors resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#DA291C] text-white text-sm font-medium hover:bg-[#c02518] transition-colors"
-                >
-                  <MailIcon className="w-4 h-4" />
-                  Send Message
-                </button>
-              </form>
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#DA291C] text-white text-sm font-medium hover:bg-[#c02518] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {status === "loading" ? (
+                      <>
+                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <MailIcon className="w-4 h-4" />
+                        Send Message
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
           </motion.div>
 
