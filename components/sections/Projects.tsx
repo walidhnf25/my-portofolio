@@ -152,7 +152,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-16 overflow-hidden bg-[#FAF8F5]">
+    <section id="projects" className="relative py-10 sm:py-16 overflow-hidden bg-[#FAF8F5]">
       {/* Newspaper texture overlay */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLy4KPC9zdmc+')] bg-repeat" />
 
@@ -163,18 +163,18 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-10"
+          className="mb-6 sm:mb-10"
         >
           {/* Category tag */}
-          <div className="inline-block mb-3">
-            <span className="text-[10px] font-bold tracking-[0.25em] uppercase bg-[#DA291C] text-white px-3 py-1">
+          <div className="inline-block mb-2 sm:mb-3">
+            <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase bg-[#DA291C] text-white px-2 sm:px-3 py-1">
               Portfolio of Works
             </span>
           </div>
 
           {/* Section title */}
-          <div className="border-b-4 border-black pb-3">
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-black leading-none">
+          <div className="border-b-4 border-black pb-2 sm:pb-3">
+            <h2 className="font-serif text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-black leading-none">
               BUILDING SOLUTIONS
               <br />
               <span className="text-[#DA291C]">THAT MATTER</span>
@@ -182,17 +182,17 @@ export default function Projects() {
           </div>
 
           {/* Subheader */}
-          <div className="flex items-center justify-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] mt-3">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-[8px] xs:text-[9px] sm:text-[10px] tracking-[0.1em] sm:tracking-[0.2em] uppercase text-[#666] mt-2 sm:mt-3">
             <span>Technical Innovation</span>
-            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span className="w-1 h-1 rounded-full bg-[#DA291C] shrink-0" />
             <span>Real-World Applications</span>
-            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span className="w-1 h-1 rounded-full bg-[#DA291C] shrink-0" />
             <span>Research-Driven</span>
           </div>
         </motion.header>
 
         {/* Main Content */}
-        <div className="grid grid-cols-12 gap-8">
+        <div className="grid grid-cols-12 gap-6 sm:gap-8">
           {/* Left Column - Projects Grid */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -202,19 +202,19 @@ export default function Projects() {
             className="col-span-12 lg:col-span-8"
           >
             {/* Main headline */}
-            <h3 className="font-serif text-2xl sm:text-3xl font-black text-black mb-2 leading-tight">
+            <h3 className="font-serif text-lg xs:text-xl sm:text-2xl font-black text-black mb-2 leading-tight">
               Technical work solving real-world problems through innovation, research, and practical applications
             </h3>
 
             {/* Byline */}
-            <div className="flex items-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] border-b border-dashed border-[#999] pb-3 mb-6">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-[9px] xs:text-[10px] tracking-[0.15em] sm:tracking-[0.2em] uppercase text-[#666] border-b border-dashed border-[#999] pb-2 sm:pb-3 mb-4 sm:mb-6">
               <span>By Projects Desk</span>
               <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
               <span>Portfolio Section</span>
             </div>
 
             {/* Projects Grid - 2 columns */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {projects.map((project, index) => (
                 <motion.article
                   key={project.title}
@@ -225,40 +225,40 @@ export default function Projects() {
                   className="relative group"
                 >
                   {/* Card */}
-                  <div className="border-2 border-black p-4 bg-white relative hover:border-[#DA291C] transition-colors h-full flex flex-col">
+                  <div className="border-2 border-black p-3 sm:p-4 bg-white relative hover:border-[#DA291C] transition-colors h-full flex flex-col">
                     {/* Red accent bar */}
                     <div className="absolute top-0 left-0 w-full h-1 bg-[#DA291C]" />
 
                     {/* Article number */}
-                    <div className="absolute top-2 right-2 font-serif text-4xl font-black text-[#DA291C]/10 leading-none">
+                    <div className="absolute top-2 right-2 font-serif text-3xl sm:text-4xl font-black text-[#DA291C]/10 leading-none">
                       {String(index + 1).padStart(2, "0")}
                     </div>
 
                     {/* Date */}
-                    <p className="text-[9px] tracking-widest uppercase text-[#666] mb-2">
+                    <p className="text-[8px] xs:text-[9px] tracking-widest uppercase text-[#666] mb-1 sm:mb-2">
                       {project.date}
                     </p>
 
                     {/* Title */}
-                    <h4 className="font-serif text-base font-black text-black leading-tight mb-2 pr-10">
+                    <h4 className="font-serif text-sm sm:text-base font-black text-black leading-tight mb-1 sm:mb-2 pr-10">
                       {project.title}
                     </h4>
 
                     {/* Description */}
-                    <p className="font-serif text-xs text-[#444] leading-relaxed mb-3 line-clamp-3">
+                    <p className="font-serif text-[10px] xs:text-xs text-[#444] leading-relaxed mb-2 sm:mb-3 line-clamp-3">
                       {project.description}
                     </p>
 
                     {/* Key Responsibilities */}
                     {project.responsibilities && (
-                      <div className="mb-3 space-y-1">
-                        <span className="text-[9px] text-[#DA291C] uppercase tracking-wider font-bold">
+                      <div className="mb-2 sm:mb-3 space-y-1">
+                        <span className="text-[8px] xs:text-[9px] text-[#DA291C] uppercase tracking-wider font-bold">
                           Key Responsibilities
                         </span>
                         <ul className="space-y-1">
                           {project.responsibilities.slice(0, 2).map((resp, i) => (
-                            <li key={i} className="text-[10px] text-[#555] leading-relaxed pl-2 border-l border-[#ddd]">
-                              {resp.length > 80 ? resp.substring(0, 80) + "..." : resp}
+                            <li key={i} className="text-[8px] xs:text-[9px] sm:text-[10px] text-[#555] leading-relaxed pl-2 border-l border-[#ddd]">
+                              {resp.length > 60 ? resp.substring(0, 60) + "..." : resp}
                             </li>
                           ))}
                         </ul>
@@ -266,11 +266,11 @@ export default function Projects() {
                     )}
 
                     {/* Technologies */}
-                    <div className="flex flex-wrap gap-1 mb-3 mt-auto">
+                    <div className="flex flex-wrap gap-1 mb-2 sm:mb-3 mt-auto">
                       {project.technologies.slice(0, 3).map((tech) => (
                         <span
                           key={tech}
-                          className="text-[8px] px-2 py-0.5 border border-[#ddd] text-[#444]"
+                          className="text-[7px] xs:text-[8px] px-1.5 sm:px-2 py-0.5 border border-[#ddd] text-[#444]"
                         >
                           {tech}
                         </span>
@@ -283,7 +283,7 @@ export default function Projects() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[10px] text-[#DA291C] hover:text-black transition-colors font-bold mt-auto"
+                        className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] text-[#DA291C] hover:text-black transition-colors font-bold mt-auto"
                       >
                         View Project
                         <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -303,41 +303,41 @@ export default function Projects() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
-            className="col-span-12 lg:col-span-4"
+            className="col-span-12 lg:col-span-4 mt-8 lg:mt-0"
           >
             {/* Project Stats */}
-            <div className="bg-black text-white p-6 mb-6">
-              <h4 className="text-[10px] tracking-[0.3em] uppercase text-[#999] mb-4 pb-2 border-b border-[#333]">
+            <div className="bg-black text-white p-4 sm:p-6 mb-4 sm:mb-6">
+              <h4 className="text-[9px] xs:text-[10px] tracking-[0.25em] sm:tracking-[0.3em] uppercase text-[#999] mb-3 sm:mb-4 pb-2 border-b border-[#333]">
                 Project Summary
               </h4>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="text-center">
-                  <p className="font-serif text-4xl font-black text-[#DA291C]">13</p>
-                  <p className="text-[10px] tracking-widest uppercase text-[#999] mt-1">
+                  <p className="font-serif text-3xl sm:text-4xl font-black text-[#DA291C]">13</p>
+                  <p className="text-[8px] xs:text-[9px] sm:text-[10px] tracking-widest uppercase text-[#999] mt-1">
                     Total Projects
                   </p>
                 </div>
-                <div className="border-t border-[#333] pt-4 grid grid-cols-2 gap-3">
+                <div className="border-t border-[#333] pt-3 sm:pt-4 grid grid-cols-2 gap-3">
                   <div className="text-center">
-                    <p className="text-xl font-bold text-white">7</p>
-                    <p className="text-[9px] uppercase text-[#666]">Web Apps</p>
+                    <p className="text-lg sm:text-xl font-bold text-white">7</p>
+                    <p className="text-[7px] xs:text-[8px] sm:text-[9px] uppercase text-[#666]">Web Apps</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-xl font-bold text-white">6</p>
-                    <p className="text-[9px] uppercase text-[#666]">Mobile Apps</p>
+                    <p className="text-lg sm:text-xl font-bold text-white">6</p>
+                    <p className="text-[7px] xs:text-[8px] sm:text-[9px] uppercase text-[#666]">Mobile Apps</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Tech Stack */}
-            <div className="border-2 border-black p-5">
-              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black border-b-2 border-black pb-2 mb-4">
+            <div className="border-2 border-black p-4 sm:p-5">
+              <h4 className="text-[9px] xs:text-[10px] tracking-[0.25em] sm:tracking-[0.3em] uppercase font-bold text-black border-b-2 border-black pb-1 sm:pb-2 mb-3 sm:mb-4">
                 Technologies Used
               </h4>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1 sm:gap-2">
                 {["Flutter", "Angular", "Laravel", "CodeIgniter", "Astro", "Node.js", "MySQL", "IoT", "GPS", "Computer Vision"].map((tech, i) => (
-                  <span key={i} className="text-[9px] px-2 py-1 bg-[#f5f3f0] text-[#444]">
+                  <span key={i} className="text-[7px] xs:text-[8px] sm:text-[9px] px-1.5 sm:px-2 py-0.5 sm:py-1 bg-[#f5f3f0] text-[#444]">
                     {tech}
                   </span>
                 ))}
@@ -345,11 +345,11 @@ export default function Projects() {
             </div>
 
             {/* Project Categories */}
-            <div className="mt-6 border border-[#ddd] p-5">
-              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black mb-3">
+            <div className="mt-4 sm:mt-6 border border-[#ddd] p-4 sm:p-5">
+              <h4 className="text-[9px] xs:text-[10px] tracking-[0.25em] sm:tracking-[0.3em] uppercase font-bold text-black mb-2 sm:mb-3">
                 Project Categories
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-1 sm:space-y-2">
                 {[
                   { cat: "Energy & Utilities", count: "3 projects" },
                   { cat: "Agriculture & Food", count: "3 projects" },
@@ -358,37 +358,37 @@ export default function Projects() {
                   { cat: "Corporate Solutions", count: "2 projects" },
                 ].map((item, i) => (
                   <li key={i} className="flex items-center justify-between">
-                    <span className="font-serif text-sm text-black">{item.cat}</span>
-                    <span className="text-[10px] text-[#DA291C]">{item.count}</span>
+                    <span className="font-serif text-[13px] sm:text-sm text-black">{item.cat}</span>
+                    <span className="text-[8px] xs:text-[9px] sm:text-[10px] text-[#DA291C]">{item.count}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Featured Project */}
-            <div className="mt-6 p-5 bg-[#f5f3f0] border-l-4 border-[#DA291C]">
-              <p className="text-[10px] tracking-widest uppercase text-[#DA291C] mb-2">
+            <div className="mt-4 sm:mt-6 p-4 sm:p-5 bg-[#f5f3f0] border-l-4 border-[#DA291C]">
+              <p className="text-[9px] xs:text-[10px] tracking-widest uppercase text-[#DA291C] mb-1 sm:mb-2">
                 Latest Project
               </p>
-              <p className="font-serif text-base font-black text-black mb-1">
+              <p className="font-serif text-sm sm:text-base font-black text-black mb-1">
                 Prabayar Pintar (Prapin)
               </p>
-              <p className="font-serif text-xs text-[#444] leading-relaxed">
+              <p className="font-serif text-[11px] sm:text-xs text-[#444] leading-relaxed">
                 Mobile-based household electricity monitoring with IoT integration, Bluetooth pairing, and smart device connectivity.
               </p>
             </div>
 
             {/* Timeline */}
-            <div className="mt-6 p-4 border border-[#ddd]">
-              <h4 className="text-[10px] tracking-widest uppercase font-bold text-black mb-3">
+            <div className="mt-4 sm:mt-6 p-3 sm:p-4 border border-[#ddd]">
+              <h4 className="text-[9px] xs:text-[10px] tracking-widest uppercase font-bold text-black mb-2 sm:mb-3">
                 Timeline Coverage
               </h4>
               <div className="flex items-center justify-between">
-                <span className="font-serif text-2xl font-black text-black">2024</span>
-                <span className="text-[#DA291C] font-serif text-xl">—</span>
-                <span className="font-serif text-2xl font-black text-black">2026</span>
+                <span className="font-serif text-xl sm:text-2xl font-black text-black">2024</span>
+                <span className="text-[#DA291C] font-serif text-lg sm:text-xl">—</span>
+                <span className="font-serif text-xl sm:text-2xl font-black text-black">2026</span>
               </div>
-              <p className="text-[10px] text-center tracking-widest uppercase text-[#666] mt-1">
+              <p className="text-[8px] xs:text-[9px] sm:text-[10px] text-center tracking-widest uppercase text-[#666] mt-1">
                 2+ Years of Development
               </p>
             </div>
@@ -401,12 +401,12 @@ export default function Projects() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-16 border-t-4 border-black pt-6"
+          className="mt-10 sm:mt-16 border-t-4 border-black pt-4 sm:pt-6"
         >
-          <div className="flex items-center justify-center gap-4">
-            <span className="w-20 h-px bg-[#999]" />
-            <span className="text-[#DA291C] text-2xl font-serif">&diams;</span>
-            <span className="w-20 h-px bg-[#999]" />
+          <div className="flex items-center justify-center gap-3 sm:gap-4">
+            <span className="w-16 sm:w-20 h-px bg-[#999]" />
+            <span className="text-[#DA291C] text-xl sm:text-2xl font-serif">&diams;</span>
+            <span className="w-16 sm:w-20 h-px bg-[#999]" />
           </div>
         </motion.div>
 
@@ -416,9 +416,9 @@ export default function Projects() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="mt-4 text-center"
+          className="mt-3 sm:mt-4 text-center"
         >
-          <p className="text-[10px] tracking-widest uppercase text-[#666]">
+          <p className="text-[8px] xs:text-[9px] sm:text-[10px] tracking-wider sm:tracking-widest uppercase text-[#666]">
             End of Section &bull; Projects &bull; Vol. MMXXVI
           </p>
         </motion.div>

@@ -31,30 +31,30 @@ export default function SplashScreen({
           className="fixed inset-0 z-[100] bg-[#FAF8F5] flex items-center justify-center"
         >
           {/* Top decorative line */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-black" />
+          <div className="absolute top-0 left-0 right-0 h-0.5 sm:h-1 bg-black" />
 
           {/* Bottom decorative line */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-black" />
+          <div className="absolute bottom-0 left-0 right-0 h-0.5 sm:h-1 bg-black" />
 
           {/* Center content */}
-          <div className="text-center px-8 max-w-4xl">
+          <div className="text-center px-4 sm:px-6 md:px-8 max-w-4xl w-full">
             {/* Label */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-[10px] tracking-[0.5em] uppercase text-[#888] font-mono mb-8"
+              className="text-[8px] xs:text-[9px] sm:text-[10px] tracking-[0.4em] sm:tracking-[0.5em] uppercase text-[#888] font-mono mb-4 sm:mb-8"
             >
               Portfolio Exhibition
             </motion.p>
 
             {/* Main Name */}
-            <div className="mb-8">
+            <div className="mb-4 sm:mb-8">
               <motion.h1
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
-                className="text-7xl md:text-9xl font-black font-serif text-black leading-none tracking-tight"
+                className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black font-serif text-black leading-none tracking-tight"
               >
                 WALID
               </motion.h1>
@@ -63,7 +63,7 @@ export default function SplashScreen({
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35, duration: 0.7, ease: "easeOut" }}
-                className="text-7xl md:text-9xl font-black font-serif text-black leading-none tracking-tight"
+                className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black font-serif text-black leading-none tracking-tight"
               >
                 HANIF
               </motion.h1>
@@ -72,7 +72,7 @@ export default function SplashScreen({
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.7, ease: "easeOut" }}
-                className="text-7xl md:text-9xl font-black font-serif text-[#DA291C] leading-none tracking-tight"
+                className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black font-serif text-[#DA291C] leading-none tracking-tight"
               >
                 ATAULLAH
               </motion.h1>
@@ -83,11 +83,11 @@ export default function SplashScreen({
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 0.7, duration: 0.5 }}
-              className="flex items-center justify-center gap-4 mb-8"
+              className="flex items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-8"
             >
-              <div className="w-20 h-px bg-black" />
-              <div className="w-1.5 h-1.5 bg-black rotate-45" />
-              <div className="w-20 h-px bg-black" />
+              <div className="w-12 sm:w-20 h-px bg-black" />
+              <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-black rotate-45" />
+              <div className="w-12 sm:w-20 h-px bg-black" />
             </motion.div>
 
             {/* Title */}
@@ -95,7 +95,7 @@ export default function SplashScreen({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.5 }}
-              className="text-sm tracking-[0.4em] uppercase text-[#555] font-serif mb-2"
+              className="text-[11px] xs:text-sm sm:text-sm tracking-[0.3em] sm:tracking-[0.4em] uppercase text-[#555] font-serif mb-1 sm:mb-2"
             >
               Software Engineer
             </motion.p>
@@ -104,7 +104,7 @@ export default function SplashScreen({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.5 }}
-              className="text-[10px] tracking-[0.25em] uppercase text-[#888] font-mono"
+              className="text-[8px] xs:text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#888] font-mono"
             >
               ML / DL &bull; IoT &bull; Research
             </motion.p>
@@ -115,10 +115,10 @@ export default function SplashScreen({
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.5 }}
               onClick={handleEnter}
-              className="group relative mt-12 inline-block"
+              className="group relative mt-8 sm:mt-12 inline-block"
             >
-              <div className="px-10 py-4 bg-black text-white group-hover:bg-[#DA291C] transition-colors duration-500">
-                <span className="text-[11px] tracking-[0.3em] uppercase font-bold font-mono">
+              <div className="px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-4 bg-black text-white group-hover:bg-[#DA291C] transition-colors duration-500">
+                <span className="text-[10px] xs:text-[11px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] uppercase font-bold font-mono">
                   Enter
                 </span>
               </div>
@@ -130,9 +130,9 @@ export default function SplashScreen({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4, duration: 0.5 }}
-            className="absolute bottom-6 left-0 right-0 text-center"
+            className="absolute bottom-4 sm:bottom-6 left-0 right-0 text-center"
           >
-            <p className="text-[9px] tracking-[0.3em] uppercase text-[#aaa] font-mono">
+            <p className="text-[7px] xs:text-[8px] sm:text-[9px] tracking-[0.25em] sm:tracking-[0.3em] uppercase text-[#aaa] font-mono">
               {new Date().toLocaleDateString("en-US", {
                 day: "numeric",
                 month: "long",

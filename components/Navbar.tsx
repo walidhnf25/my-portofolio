@@ -51,8 +51,8 @@ export default function Navbar() {
           borderBottom: isScrolled ? "2px solid #000" : "2px solid #000",
         }}
       >
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14">
+        <div className="relative mx-auto max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-12 sm:h-14">
             {/* Logo - Custom Logo */}
             <button
               onClick={() => scrollToSection("#home")}
@@ -61,7 +61,7 @@ export default function Navbar() {
               <img
                 src="/logo.png"
                 alt="WHA Logo"
-                className="h-15 w-auto object-contain group-hover:opacity-80 transition-opacity"
+                className="h-10 sm:h-15 w-auto object-contain group-hover:opacity-80 transition-opacity"
               />
             </button>
 
@@ -71,7 +71,7 @@ export default function Navbar() {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`relative px-3 py-2 text-[11px] font-medium tracking-wide uppercase transition-colors duration-200 whitespace-nowrap font-serif ${
+                  className={`relative px-2 sm:px-3 py-2 text-[10px] sm:text-[11px] font-medium tracking-wide uppercase transition-colors duration-200 whitespace-nowrap font-serif ${
                     activeSection === item.href.replace("#", "")
                       ? "text-[#DA291C] border-b-2 border-[#DA291C]"
                       : "text-[#444] hover:text-[#DA291C]"
@@ -83,11 +83,11 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 sm:gap-2">
               <MusicPlayer />
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-1.5 text-black hover:text-[#DA291C] transition-colors lg:hidden border border-black hover:border-[#DA291C]"
+                className="p-1 sm:p-1.5 text-black hover:text-[#DA291C] transition-colors lg:hidden"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? (
@@ -102,9 +102,9 @@ export default function Navbar() {
 
         {/* Edition line below nav */}
         <div className="hidden lg:block bg-black text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between text-[9px] tracking-[0.2em] uppercase py-1">
-              <span>Software Engineer &bull; ML/DL Enthusiast &bull; IoT Explorer</span>
+          <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+            <div className="flex items-center justify-between text-[8px] sm:text-[9px] tracking-[0.15em] sm:tracking-[0.2em] uppercase py-0.5 sm:py-1">
+              <span className="hidden sm:inline">Software Engineer &bull; ML/DL Enthusiast &bull; IoT Explorer</span>
               <span>{new Date().toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", year: "numeric" })}</span>
             </div>
           </div>
@@ -127,10 +127,10 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="fixed top-14 left-0 right-0 z-50 bg-[#FAF8F5] border-b-4 border-black md:hidden"
+              className="fixed top-12 sm:top-14 left-0 right-0 z-50 bg-[#FAF8F5] border-b-2 sm:border-b-4 border-black md:hidden"
             >
-              <div className="max-w-7xl mx-auto px-4 py-4">
-                <div className="grid grid-cols-2 gap-1">
+              <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4">
+                <div className="grid grid-cols-2 gap-1 sm:gap-1.5">
                   {navItems.map((item, index) => (
                     <motion.button
                       key={item.name}
@@ -138,13 +138,13 @@ export default function Navbar() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.02 }}
                       onClick={() => scrollToSection(item.href)}
-                      className={`flex items-center px-4 py-3 text-sm font-serif font-medium transition-colors text-left border border-transparent hover:border-[#DA291C] ${
+                      className={`flex items-center px-3 sm:px-4 py-2 sm:py-3 text-sm font-serif font-medium transition-colors text-left border border-transparent hover:border-[#DA291C] ${
                         activeSection === item.href.replace("#", "")
                           ? "text-[#DA291C] bg-black/5"
                           : "text-[#333] hover:bg-black/5"
                       }`}
                     >
-                      <span className="text-[10px] tracking-[0.15em] uppercase mr-2">
+                      <span className="text-[9px] sm:text-[10px] tracking-[0.1em] sm:tracking-[0.15em] uppercase mr-1.5 sm:mr-2">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       {item.name}
