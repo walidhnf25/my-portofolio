@@ -152,185 +152,275 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-40 overflow-hidden">
-      {/* Subtle ambient background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-125 h-100 bg-[#DA291C]/2 blur-[150px] rounded-full" />
-      </div>
+    <section id="projects" className="relative py-16 overflow-hidden bg-[#FAF8F5]">
+      {/* Newspaper texture overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLy4KPC9zdmc+')] bg-repeat" />
 
-      <div className="mx-auto max-w-5xl px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header - Newspaper Masthead Style */}
+        <motion.header
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-10"
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-[10px] text-[#DA291C] uppercase tracking-[0.3em] mb-4"
-          >
-            Projects
-          </motion.p>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-5"
-          >
-            Building solutions that{' '}
-            <span className="bg-linear-to-r from-[#DA291C] to-[#e64a3a] bg-clip-text text-transparent">
-              matter
+          {/* Category tag */}
+          <div className="inline-block mb-3">
+            <span className="text-[10px] font-bold tracking-[0.25em] uppercase bg-[#DA291C] text-white px-3 py-1">
+              Portfolio of Works
             </span>
-          </motion.h2>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          {/* Section title */}
+          <div className="border-b-4 border-black pb-3">
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-black leading-none">
+              BUILDING SOLUTIONS
+              <br />
+              <span className="text-[#DA291C]">THAT MATTER</span>
+            </h2>
+          </div>
+
+          {/* Subheader */}
+          <div className="flex items-center justify-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] mt-3">
+            <span>Technical Innovation</span>
+            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span>Real-World Applications</span>
+            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span>Research-Driven</span>
+          </div>
+        </motion.header>
+
+        {/* Main Content */}
+        <div className="grid grid-cols-12 gap-8">
+          {/* Left Column - Projects Grid */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="text-sm text-zinc-500 max-w-xl"
+            className="col-span-12 lg:col-span-8"
           >
-            Technical work solving real-world problems through innovation, research, and practical applications
-          </motion.p>
-        </motion.div>
+            {/* Main headline */}
+            <h3 className="font-serif text-2xl sm:text-3xl font-black text-black mb-2 leading-tight">
+              Technical work solving real-world problems through innovation, research, and practical applications
+            </h3>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
-          {projects.map((projects, index) => (
-            <motion.div
-              key={projects.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="relative group flex"
-            >
-              {/* Card */}
-              <div
-                className="relative rounded-2xl p-6 sm:p-8 border transition-all duration-500 group-hover:border-white/8 w-full h-full flex flex-col"
-                style={{
-                  background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
-                  borderColor: "rgba(255,255,255,0.04)",
-                }}
-              >
-                {/* Content wrapper with flex-1 to push link to bottom */}
-                <div className="flex flex-col h-full">
-                {/* Subtle glow on hover */}
-                <div
-                  className="absolute -inset-6 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"
-                  style={{
-                    background: "radial-gradient(ellipse at top left, rgba(218,41,28,0.06), transparent 60%)",
-                  }}
-                />
+            {/* Byline */}
+            <div className="flex items-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] border-b border-dashed border-[#999] pb-3 mb-6">
+              <span>By Projects Desk</span>
+              <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+              <span>Portfolio Section</span>
+            </div>
 
-                {/* Date */}
-                <div className="flex items-center gap-2 mb-4">
-                  <svg className="w-3.5 h-3.5 text-zinc-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-[11px] text-zinc-500">{projects.date}</span>
-                </div>
-
-                {/* Title */}
-                <motion.h3
-                  initial={{ opacity: 0, y: 10 }}
+            {/* Projects Grid - 2 columns */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {projects.map((project, index) => (
+                <motion.article
+                  key={project.title}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="text-lg sm:text-xl font-semibold text-white mb-3 tracking-tight leading-tight"
+                  className="relative group"
                 >
-                  {projects.title}
-                </motion.h3>
+                  {/* Card */}
+                  <div className="border-2 border-black p-4 bg-white relative hover:border-[#DA291C] transition-colors h-full flex flex-col">
+                    {/* Red accent bar */}
+                    <div className="absolute top-0 left-0 w-full h-1 bg-[#DA291C]" />
 
-                {/* Description */}
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-sm text-zinc-500 leading-relaxed mb-4"
-                >
-                  {projects.description}
-                </motion.p>
+                    {/* Article number */}
+                    <div className="absolute top-2 right-2 font-serif text-4xl font-black text-[#DA291C]/10 leading-none">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
 
-                {/* Key Responsibilities */}
-                {projects.responsibilities && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.35 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="mb-4 space-y-1.5"
-                  >
-                    <span className="text-[10px] text-[#DA291C] uppercase tracking-wider font-medium">Key Responsibilities</span>
-                    <ul className="space-y-1">
-                      {projects.responsibilities.map((resp, i) => (
-                        <li key={i} className="text-xs text-zinc-400 leading-relaxed pl-3 border-l border-white/10">
-                          {resp}
-                        </li>
+                    {/* Date */}
+                    <p className="text-[9px] tracking-widest uppercase text-[#666] mb-2">
+                      {project.date}
+                    </p>
+
+                    {/* Title */}
+                    <h4 className="font-serif text-base font-black text-black leading-tight mb-2 pr-10">
+                      {project.title}
+                    </h4>
+
+                    {/* Description */}
+                    <p className="font-serif text-xs text-[#444] leading-relaxed mb-3 line-clamp-3">
+                      {project.description}
+                    </p>
+
+                    {/* Key Responsibilities */}
+                    {project.responsibilities && (
+                      <div className="mb-3 space-y-1">
+                        <span className="text-[9px] text-[#DA291C] uppercase tracking-wider font-bold">
+                          Key Responsibilities
+                        </span>
+                        <ul className="space-y-1">
+                          {project.responsibilities.slice(0, 2).map((resp, i) => (
+                            <li key={i} className="text-[10px] text-[#555] leading-relaxed pl-2 border-l border-[#ddd]">
+                              {resp.length > 80 ? resp.substring(0, 80) + "..." : resp}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-1 mb-3 mt-auto">
+                      {project.technologies.slice(0, 3).map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-[8px] px-2 py-0.5 border border-[#ddd] text-[#444]"
+                        >
+                          {tech}
+                        </span>
                       ))}
-                    </ul>
-                  </motion.div>
-                )}
+                    </div>
 
-                {/* Technologies */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex flex-wrap gap-2 mb-4"
-                >
-                  {projects.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-[10px] px-2.5 py-1 rounded-full bg-white/3 border border-white/6 text-zinc-500"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </motion.div>
+                    {/* Link */}
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[10px] text-[#DA291C] hover:text-black transition-colors font-bold mt-auto"
+                      >
+                        View Project
+                        <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          </motion.div>
 
-                {/* Link */}
-                {projects.link && (
-                  <motion.a
-                    href={projects.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.45 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="inline-flex items-center gap-2 text-xs text-[#DA291C] hover:text-[#e64a3a] transition-colors mt-auto"
-                  >
-                    View Project
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </motion.a>
-                )}
+          {/* Right Column - Sidebar */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="col-span-12 lg:col-span-4"
+          >
+            {/* Project Stats */}
+            <div className="bg-black text-white p-6 mb-6">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase text-[#999] mb-4 pb-2 border-b border-[#333]">
+                Project Summary
+              </h4>
+              <div className="space-y-4">
+                <div className="text-center">
+                  <p className="font-serif text-4xl font-black text-[#DA291C]">13</p>
+                  <p className="text-[10px] tracking-widest uppercase text-[#999] mt-1">
+                    Total Projects
+                  </p>
+                </div>
+                <div className="border-t border-[#333] pt-4 grid grid-cols-2 gap-3">
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-white">7</p>
+                    <p className="text-[9px] uppercase text-[#666]">Web Apps</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-white">6</p>
+                    <p className="text-[9px] uppercase text-[#666]">Mobile Apps</p>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            </div>
+
+            {/* Tech Stack */}
+            <div className="border-2 border-black p-5">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black border-b-2 border-black pb-2 mb-4">
+                Technologies Used
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {["Flutter", "Angular", "Laravel", "CodeIgniter", "Astro", "Node.js", "MySQL", "IoT", "GPS", "Computer Vision"].map((tech, i) => (
+                  <span key={i} className="text-[9px] px-2 py-1 bg-[#f5f3f0] text-[#444]">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Project Categories */}
+            <div className="mt-6 border border-[#ddd] p-5">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black mb-3">
+                Project Categories
+              </h4>
+              <ul className="space-y-2">
+                {[
+                  { cat: "Energy & Utilities", count: "3 projects" },
+                  { cat: "Agriculture & Food", count: "3 projects" },
+                  { cat: "Government & Admin", count: "3 projects" },
+                  { cat: "Fleet & Tracking", count: "2 projects" },
+                  { cat: "Corporate Solutions", count: "2 projects" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center justify-between">
+                    <span className="font-serif text-sm text-black">{item.cat}</span>
+                    <span className="text-[10px] text-[#DA291C]">{item.count}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Featured Project */}
+            <div className="mt-6 p-5 bg-[#f5f3f0] border-l-4 border-[#DA291C]">
+              <p className="text-[10px] tracking-widest uppercase text-[#DA291C] mb-2">
+                Latest Project
+              </p>
+              <p className="font-serif text-base font-black text-black mb-1">
+                Prabayar Pintar (Prapin)
+              </p>
+              <p className="font-serif text-xs text-[#444] leading-relaxed">
+                Mobile-based household electricity monitoring with IoT integration, Bluetooth pairing, and smart device connectivity.
+              </p>
+            </div>
+
+            {/* Timeline */}
+            <div className="mt-6 p-4 border border-[#ddd]">
+              <h4 className="text-[10px] tracking-widest uppercase font-bold text-black mb-3">
+                Timeline Coverage
+              </h4>
+              <div className="flex items-center justify-between">
+                <span className="font-serif text-2xl font-black text-black">2024</span>
+                <span className="text-[#DA291C] font-serif text-xl">—</span>
+                <span className="font-serif text-2xl font-black text-black">2026</span>
+              </div>
+              <p className="text-[10px] text-center tracking-widest uppercase text-[#666] mt-1">
+                2+ Years of Development
+              </p>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Bottom flourish */}
+        {/* Bottom section - Decorative line */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-20 flex justify-center"
+          className="mt-16 border-t-4 border-black pt-6"
         >
-          <div className="h-px w-24 bg-linear-to-r from-transparent via-[#DA291C]/25 to-transparent" />
+          <div className="flex items-center justify-center gap-4">
+            <span className="w-20 h-px bg-[#999]" />
+            <span className="text-[#DA291C] text-2xl font-serif">&diams;</span>
+            <span className="w-20 h-px bg-[#999]" />
+          </div>
+        </motion.div>
+
+        {/* Edition footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-4 text-center"
+        >
+          <p className="text-[10px] tracking-widest uppercase text-[#666]">
+            End of Section &bull; Projects &bull; Vol. MMXXVI
+          </p>
         </motion.div>
       </div>
     </section>

@@ -8,7 +8,7 @@ import { socialLinks } from "@/lib/data";
 const contactMethods = [
   {
     icon: MailIcon,
-    label: "Email",
+    label: "Electronic Mail",
     value: "walidhnf12@gmail.com",
     href: "mailto:walidhnf12@gmail.com",
   },
@@ -26,7 +26,7 @@ const contactMethods = [
   },
   {
     icon: MapPinIcon,
-    label: "Location",
+    label: "Residence",
     value: "Tangerang, Indonesia",
     href: "#",
   },
@@ -75,221 +75,336 @@ export default function Contact() {
     }
   };
 
+  const currentDate = new Date().toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
-    <section id="contact" className="relative py-40 overflow-hidden">
-      {/* Subtle ambient background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-100 bg-[#DA291C]/2 blur-[150px] rounded-full" />
-      </div>
+    <section id="contact" className="relative overflow-hidden bg-[#FAF8F5]">
+      {/* Newspaper texture overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLy4KPC9zdmc+')] bg-repeat" />
 
-      <div className="mx-auto max-w-5xl px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-20"
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        {/* Masthead */}
+        <motion.header
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10"
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-[10px] text-[#DA291C] uppercase tracking-[0.3em] mb-4"
-          >
-            Contact
-          </motion.p>
+          {/* Top bar */}
+          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-[10px] sm:tracking-[0.15em] tracking-[0.08em] uppercase text-[#2a2a2a] border-b-2 border-black pb-2 mb-2">
+            <span>{currentDate}</span>
+            <span className="font-medium">Letters to the Editor</span>
+            <span>Section C</span>
+          </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-5"
-          >
-            Get in{' '}
-            <span className="bg-linear-to-r from-[#DA291C] to-[#e64a3a] bg-clip-text text-transparent">
-              touch
-            </span>
-          </motion.h2>
+          {/* Section Header */}
+          <div className="border-b-4 border-black pb-4">
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-black leading-none">
+              CONTACT
+            </h2>
+            <p className="font-serif text-lg md:text-xl italic text-[#555] mt-2">
+              &ldquo;Reach out and let&apos;s collaborate on the next breakthrough&rdquo;
+            </p>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-sm text-zinc-500 max-w-xl"
-          >
-            Let&apos;s discuss opportunities, collaborations, and ideas
-          </motion.p>
-        </motion.div>
+          {/* Edition info */}
+          <div className="border-t border-dashed border-[#999] mt-3 pt-2">
+            <p className="text-[10px] tracking-widest uppercase text-[#666]">
+              Communication Channel &bull; Network Edition
+            </p>
+          </div>
+        </motion.header>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          {/* Contact Form */}
+        {/* Main Content Grid - Newspaper Style */}
+        <div className="grid grid-cols-12 gap-6 mt-8">
+          {/* Left Column - Letter to Editor Form */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="lg:col-span-3"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="col-span-12 lg:col-span-8"
           >
-            <div
-              className="relative rounded-2xl p-6 sm:p-8 border"
-              style={{
-                background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
-                borderColor: "rgba(255,255,255,0.04)",
-              }}
-            >
-              <h3 className="text-lg font-semibold text-white mb-5 sm:mb-6">Send a Message</h3>
+            {/* Form Container - Newspaper Style */}
+            <div className="bg-white border-2 border-black p-6 sm:p-8 relative">
+              {/* Corner decorations */}
+              <div className="absolute top-2 left-2 w-8 h-8 border-l-2 border-t-2 border-black" />
+              <div className="absolute top-2 right-2 w-8 h-8 border-r-2 border-t-2 border-black" />
+              <div className="absolute bottom-2 left-2 w-8 h-8 border-l-2 border-b-2 border-black" />
+              <div className="absolute bottom-2 right-2 w-8 h-8 border-r-2 border-b-2 border-black" />
+
+              {/* Section label */}
+              <div className="text-center mb-6">
+                <span className="text-[10px] font-bold tracking-[0.3em] uppercase bg-[#DA291C] text-white px-4 py-1">
+                  Send Your Message
+                </span>
+              </div>
+
+              <h3 className="font-serif text-2xl md:text-3xl font-black text-black text-center mb-2">
+                Letter to the Author
+              </h3>
+              <p className="font-serif text-sm text-[#555] text-center italic mb-8">
+                Your inquiries, collaborations, and opportunities are welcome
+              </p>
 
               {status === "success" ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12"
+                  className="text-center py-12 border-2 border-dashed border-[#DA291C] bg-[#faf8f5]"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500/10 flex items-center justify-center">
-                    <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#DA291C]/10 flex items-center justify-center">
+                    <svg className="w-8 h-8 text-[#DA291C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h4 className="text-lg font-semibold text-white mb-2">Message Sent!</h4>
-                  <p className="text-sm text-zinc-500 mb-4">Thank you for reaching out. I&apos;ll get back to you soon.</p>
+                  <h4 className="font-serif text-xl font-black text-black mb-2">Message Received!</h4>
+                  <p className="font-serif text-sm text-[#555] mb-4">
+                    Thank you for reaching out. A response shall be forthcoming.
+                  </p>
                   <button
                     onClick={() => setStatus("idle")}
-                    className="text-sm text-[#DA291C] hover:text-[#e64a3a] transition-colors"
+                    className="font-serif text-sm text-[#DA291C] hover:text-[#c02518] transition-colors underline"
                   >
                     Send another message
                   </button>
                 </motion.div>
               ) : (
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                   {status === "error" && (
-                    <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20">
-                      <p className="text-sm text-red-400">{errorMessage}</p>
+                    <div className="p-4 border-2 border-red-600 bg-red-50">
+                      <p className="font-serif text-sm text-red-700">{errorMessage}</p>
                     </div>
                   )}
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs text-zinc-500 mb-2">Name *</label>
+                  {/* Form fields in newspaper columns */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="border-b-2 border-black pb-1">
+                      <label className="block text-[10px] tracking-[0.2em] uppercase text-[#666] mb-2">Name *</label>
                       <input
                         type="text"
                         name="name"
-                        placeholder="Your name"
+                        placeholder="Your good name"
                         required
                         disabled={status === "loading"}
-                        className="w-full px-4 py-3 rounded-lg bg-white/3 border border-white/6 text-white text-sm placeholder:text-zinc-700 focus:outline-none focus:border-[#DA291C]/30 transition-colors disabled:opacity-50"
+                        className="w-full bg-transparent border-none text-black font-serif text-base placeholder:text-[#999] focus:outline-none disabled:opacity-50"
                       />
                     </div>
-                    <div>
-                      <label className="block text-xs text-zinc-500 mb-2">Email *</label>
+                    <div className="border-b-2 border-black pb-1">
+                      <label className="block text-[10px] tracking-[0.2em] uppercase text-[#666] mb-2">Email *</label>
                       <input
                         type="email"
                         name="email"
-                        placeholder="you@example.com"
+                        placeholder="your.email@domain.com"
                         required
                         disabled={status === "loading"}
-                        className="w-full px-4 py-3 rounded-lg bg-white/3 border border-white/6 text-white text-sm placeholder:text-zinc-700 focus:outline-none focus:border-[#DA291C]/30 transition-colors disabled:opacity-50"
+                        className="w-full bg-transparent border-none text-black font-serif text-base placeholder:text-[#999] focus:outline-none disabled:opacity-50"
                       />
                     </div>
                   </div>
-                  <div>
-                    <label className="block text-xs text-zinc-500 mb-2">Subject</label>
+
+                  <div className="border-b-2 border-black pb-1">
+                    <label className="block text-[10px] tracking-[0.2em] uppercase text-[#666] mb-2">Subject Matter</label>
                     <input
                       type="text"
                       name="subject"
                       placeholder="Collaboration opportunity"
                       disabled={status === "loading"}
-                      className="w-full px-4 py-3 rounded-lg bg-white/3 border border-white/6 text-white text-sm placeholder:text-zinc-700 focus:outline-none focus:border-[#DA291C]/30 transition-colors disabled:opacity-50"
+                      className="w-full bg-transparent border-none text-black font-serif text-base placeholder:text-[#999] focus:outline-none disabled:opacity-50"
                     />
                   </div>
-                  <div>
-                    <label className="block text-xs text-zinc-500 mb-2">Message *</label>
+
+                  <div className="border-b-2 border-black pb-1">
+                    <label className="block text-[10px] tracking-[0.2em] uppercase text-[#666] mb-2">Your Message *</label>
                     <textarea
                       name="message"
-                      rows={4}
-                      placeholder="Your message"
+                      rows={5}
+                      placeholder="Compose your message here..."
                       required
                       disabled={status === "loading"}
-                      className="w-full px-4 py-3 rounded-lg bg-white/3 border border-white/6 text-white text-sm placeholder:text-zinc-700 focus:outline-none focus:border-[#DA291C]/30 transition-colors resize-none disabled:opacity-50"
+                      className="w-full bg-transparent border-none text-black font-serif text-base placeholder:text-[#999] focus:outline-none resize-none disabled:opacity-50 min-h-30"
                     />
                   </div>
-                  <button
-                    type="submit"
-                    disabled={status === "loading"}
-                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#DA291C] text-white text-sm font-medium hover:bg-[#c02518] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {status === "loading" ? (
-                      <>
-                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                        </svg>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <MailIcon className="w-4 h-4" />
-                        Send Message
-                      </>
-                    )}
-                  </button>
+
+                  <div className="pt-4">
+                    <button
+                      type="submit"
+                      disabled={status === "loading"}
+                      className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-3 bg-black text-white font-serif text-base font-bold hover:bg-[#DA291C] transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {status === "loading" ? (
+                        <>
+                          <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                          </svg>
+                          Transmitting...
+                        </>
+                      ) : (
+                        <>
+                          <MailIcon className="w-4 h-4" />
+                          Send Letter
+                        </>
+                      )}
+                    </button>
+                  </div>
                 </form>
               )}
             </div>
+
+            {/* Quote box below form */}
+            <div className="mt-6 p-5 border-2 border-black bg-[#f5f3f0]">
+              <p className="font-serif text-base italic text-[#333] leading-relaxed">
+                &ldquo;I believe in the power of connection. Every message opens a door to potential collaboration, innovation, and growth.&rdquo;
+              </p>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-[#666] mt-3">
+                — From the Author&apos;s Desk
+              </p>
+            </div>
           </motion.div>
 
-          {/* Contact Methods */}
+          {/* Right Column - Contact Directory */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="lg:col-span-2 space-y-4"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="col-span-12 lg:col-span-4"
           >
-            {contactMethods.map((method) => (
-              <a
-                key={method.label}
-                href={method.href}
-                target={method.label === "Location" ? "_self" : "_blank"}
-                rel="noopener noreferrer"
-                className="block group"
-              >
-                <div
-                  className="relative rounded-xl p-4 border transition-all duration-500 group-hover:border-white/8"
-                  style={{
-                    background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
-                    borderColor: "rgba(255,255,255,0.04)",
-                  }}
+            {/* Directory header */}
+            <div className="bg-black text-white p-4 mb-0">
+              <h3 className="font-serif text-xl font-black tracking-tight text-center">
+                CONTACT DIRECTORY
+              </h3>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-center text-[#999] mt-1">
+                Reach the author through these channels
+              </p>
+            </div>
+
+            {/* Contact cards */}
+            <div className="border-2 border-t-0 border-black space-y-0">
+              {contactMethods.map((method) => (
+                <a
+                  key={method.label}
+                  href={method.href}
+                  target={method.label === "Residence" ? "_self" : "_blank"}
+                  rel="noopener noreferrer"
+                  className="block group"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="p-2.5 rounded-lg bg-[#DA291C]/10 shrink-0">
-                      <method.icon className="w-5 h-5 text-[#DA291C]" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-zinc-600">{method.label}</p>
-                      <p className="text-sm font-medium text-white">{method.value}</p>
+                  <div className="p-4 border-b border-dashed border-[#ccc] last:border-b-0 hover:bg-[#faf8f5] transition-colors duration-300">
+                    <div className="flex items-start gap-4">
+                      <div className="p-2 bg-[#DA291C] text-white shrink-0">
+                        <method.icon className="w-4 h-4" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-[10px] tracking-[0.2em] uppercase text-[#666]">{method.label}</p>
+                        <p className="font-serif text-sm text-black mt-1 group-hover:text-[#DA291C] transition-colors">
+                          {method.value}
+                        </p>
+                      </div>
+                      <div className="text-[#DA291C] opacity-0 group-hover:opacity-100 transition-opacity">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
+                </a>
+              ))}
+            </div>
+
+            {/* Operating hours box */}
+            <div className="mt-6 p-5 border-2 border-black bg-white">
+              <h4 className="font-serif text-base font-black text-black border-b-2 border-black pb-2 mb-3">
+                Response Time
+              </h4>
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <span className="font-serif text-sm text-[#555]">Monday - Friday</span>
+                  <span className="font-serif text-sm text-black">9:00 AM - 6:00 PM</span>
                 </div>
-              </a>
-            ))}
+                <div className="flex justify-between">
+                  <span className="font-serif text-sm text-[#555]">Saturday</span>
+                  <span className="font-serif text-sm text-black">10:00 AM - 4:00 PM</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="font-serif text-sm text-[#555]">Sunday</span>
+                  <span className="font-serif text-sm text-[#DA291C] italic">By appointment</span>
+                </div>
+              </div>
+              <p className="font-serif text-xs text-[#666] italic mt-4">
+                * Response times may vary during holidays
+              </p>
+            </div>
           </motion.div>
         </div>
 
-        {/* Bottom flourish */}
+        {/* Bottom section - Social bar */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-20 flex justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-12 border-t-4 border-b-2 border-black py-8"
         >
-          <div className="h-px w-24 bg-linear-to-r from-transparent via-[#DA291C]/25 to-transparent" />
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="text-center sm:text-left">
+              <h4 className="font-serif text-lg font-black text-black">
+                Follow The Journey
+              </h4>
+              <p className="font-serif text-sm text-[#555] mt-1">
+                Stay connected with the latest updates and research
+              </p>
+            </div>
+
+            {/* Social links */}
+            <div className="flex items-center gap-2">
+              {Object.entries(socialLinks).map(([key, url]) => {
+                const icons: Record<string, React.ElementType> = {
+                  linkedin: LinkedinIcon,
+                  whatsapp: MessageCircleIcon,
+                  email: MailIcon,
+                  scholar: () => (
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                    </svg>
+                  ),
+                };
+                const Icon = icons[key] || MailIcon;
+                return (
+                  <a
+                    key={key}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-10 h-10 bg-black text-white hover:bg-[#DA291C] transition-colors duration-300"
+                    title={key.charAt(0).toUpperCase() + key.slice(1)}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
         </motion.div>
+
+        {/* Footer ornament */}
+        <div className="mt-10 text-center">
+          <div className="flex items-center justify-center gap-4">
+            <span className="w-24 h-px bg-[#999]" />
+            <span className="text-[#DA291C] text-2xl font-serif">&diams;</span>
+            <span className="w-24 h-px bg-[#999]" />
+          </div>
+        </div>
+
+        {/* Issue footer */}
+        <div className="mt-6 text-center">
+          <p className="text-[10px] tracking-[0.15em] uppercase text-[#666]">
+            End of Contact Section &bull; Vol. MMXXVI &bull; Continued on Social Media
+          </p>
+        </div>
       </div>
     </section>
   );

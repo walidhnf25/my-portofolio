@@ -46,7 +46,7 @@ const experience = [
       "Real-time scheduling features",
       "Multi-branch operational efficiency",
     ],
-    accentColor: "#FFD700",
+    accentColor: "#DA291C",
   },
   {
     company: "Department of Communication and Informatics",
@@ -61,196 +61,257 @@ const experience = [
       "Integrated employee data management",
       "Government digital transformation",
     ],
-    accentColor: "#FFD700",
+    accentColor: "#DA291C",
   },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-40 overflow-hidden">
-      {/* Subtle ambient background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-150 h-100 bg-[#DA291C]/2 blur-[150px] rounded-full" />
-      </div>
+    <section id="experience" className="relative py-16 overflow-hidden bg-[#FAF8F5]">
+      {/* Newspaper texture overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLy4KPC9zdmc+')] bg-repeat" />
 
-      <div className="mx-auto max-w-5xl px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header - Newspaper Masthead Style */}
+        <motion.header
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-10"
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-[10px] text-[#DA291C] uppercase tracking-[0.3em] mb-4"
-          >
-            Experience
-          </motion.p>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-5"
-          >
-            Where{' '}
-            <span className="bg-linear-to-r from-[#DA291C] to-[#e64a3a] bg-clip-text text-transparent">
-              skills
-            </span>{' '}
-            meet impact
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-sm text-zinc-500 max-w-xl"
-          >
-            Real-world experience building production applications and contributing to research-driven solutions
-          </motion.p>
-        </motion.div>
-
-        {/* Experience Cards - Clean layout on mobile, journey style on desktop */}
-        <div className="relative">
-          {/* Journey line - only visible on lg */}
-          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 -translate-x-1/2 hidden lg:block">
-            <div className="relative h-full w-px bg-linear-to-b from-[#DA291C]/30 via-[#DA291C]/15 to-[#FFD700]/15" />
-
-            {/* Nodes */}
-            {experience.map((_, index) => (
-              <div
-                key={index}
-                className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2"
-                style={{
-                  top: `${12 + index * 24}%`,
-                  backgroundColor: index < 2 ? "#DA291C" : "#FFD700",
-                  borderColor: index < 2 ? "#DA291C" : "#FFD700",
-                  boxShadow: `0 0 12px ${index < 2 ? "rgba(218,41,28,0.4)" : "rgba(255,215,0,0.4)"}`,
-                }}
-              />
-            ))}
+          {/* Category tag */}
+          <div className="inline-block mb-3">
+            <span className="text-[10px] font-bold tracking-[0.25em] uppercase bg-[#DA291C] text-white px-3 py-1">
+              Professional Journey
+            </span>
           </div>
 
-          {/* Experience cards */}
-          <div className="space-y-6 lg:space-y-16">
-            {experience.map((experience, index) => (
-              <motion.div
-                key={`${experience.company}-${experience.role}`}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className={`relative ${
-                  index % 2 === 0
-                    ? "lg:pr-[52%]"
-                    : "lg:pl-[52%] lg:text-right"
-                }`}
-              >
-                {/* Card - clean on mobile */}
-                <div
-                  className="relative rounded-2xl p-6 sm:p-8 border transition-all duration-500 hover:border-white/8"
-                  style={{
-                    background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
-                    borderColor: "rgba(255,255,255,0.04)",
-                  }}
-                >
-                  {/* Subtle glow on hover */}
-                  <div
-                    className="absolute -inset-6 rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-700 -z-10"
-                    style={{
-                      background: `radial-gradient(ellipse at ${index % 2 === 0 ? "left" : "right"}, ${experience.accentColor}06, transparent 60%)`,
-                    }}
-                  />
+          {/* Section title */}
+          <div className="border-b-4 border-black pb-3">
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-black leading-none">
+              WHERE SKILLS
+              <br />
+              <span className="text-[#DA291C]">MEET IMPACT</span>
+            </h2>
+          </div>
 
-                  <div className="space-y-5">
-                    {/* Period & Type */}
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span
-                        className="text-[10px] font-medium tracking-[0.2em] uppercase"
-                        style={{ color: experience.accentColor }}
-                      >
-                        {experience.period}
-                      </span>
-                      <div className="w-8 h-px bg-zinc-700 hidden sm:block" />
-                      <span className="text-[10px] text-zinc-600 uppercase tracking-widest">
-                        {experience.type}
-                      </span>
+          {/* Subheader */}
+          <div className="flex items-center justify-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] mt-3">
+            <span>Real-World Experience</span>
+            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span>Production Applications</span>
+            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span>Research Solutions</span>
+          </div>
+        </motion.header>
+
+        {/* Main Content */}
+        <div className="grid grid-cols-12 gap-8">
+          {/* Left Column - Experience Timeline */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="col-span-12 lg:col-span-8"
+          >
+            {/* Main headline */}
+            <h3 className="font-serif text-2xl sm:text-3xl font-black text-black mb-2 leading-tight">
+              Real-world experience building production applications and contributing to research-driven solutions
+            </h3>
+
+            {/* Byline */}
+            <div className="flex items-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] border-b border-dashed border-[#999] pb-3 mb-6">
+              <span>By Career Desk</span>
+              <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+              <span>Experience Section</span>
+            </div>
+
+            {/* Experience entries */}
+            <div className="space-y-6">
+              {experience.map((exp, index) => (
+                <motion.article
+                  key={`${exp.company}-${exp.role}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="relative"
+                >
+                  {/* Article number */}
+                  <div className="absolute -left-4 top-0 font-serif text-6xl font-black text-[#DA291C]/10 leading-none">
+                    0{index + 1}
+                  </div>
+
+                  {/* Card */}
+                  <div className="border-2 border-black p-6 bg-white relative">
+                    {/* Red accent bar */}
+                    <div className="absolute top-0 left-0 w-full h-1 bg-[#DA291C]" />
+
+                    {/* Header */}
+                    <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                      <div>
+                        <div className="flex flex-wrap items-center gap-3 mb-2">
+                          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#DA291C]">
+                            {exp.period}
+                          </p>
+                          <span className="w-1 h-1 rounded-full bg-[#999]" />
+                          <span className="text-[10px] tracking-widest uppercase text-[#666]">
+                            {exp.type}
+                          </span>
+                        </div>
+                        <h4 className="font-serif text-xl sm:text-2xl font-black text-black leading-tight">
+                          {exp.role}
+                        </h4>
+                      </div>
                     </div>
 
-                    {/* Role */}
-                    <motion.h3
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="text-xl md:text-2xl font-semibold text-white tracking-tight leading-tight"
-                    >
-                      {experience.role}
-                    </motion.h3>
-
                     {/* Company & Location */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="space-y-1"
-                    >
-                      <p className="text-sm text-zinc-400">{experience.company}</p>
-                      <p className="text-xs text-zinc-600">{experience.location}</p>
-                    </motion.div>
+                    <div className="mb-4">
+                      <p className="font-serif text-base text-black font-semibold">
+                        {exp.company}
+                      </p>
+                      <p className="text-[11px] tracking-widest uppercase text-[#666]">
+                        {exp.location}
+                      </p>
+                    </div>
 
                     {/* Description */}
-                    <motion.p
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.35 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="text-sm text-zinc-500 leading-relaxed"
-                    >
-                      {experience.description}
-                    </motion.p>
+                    <p className="font-serif text-sm text-[#444] leading-relaxed border-l-2 border-[#DA291C] pl-4 mb-4">
+                      {exp.description}
+                    </p>
 
                     {/* Highlights */}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="flex flex-wrap gap-2"
-                    >
-                      {experience.highlights.map((highlight) => (
+                    <div className="flex flex-wrap gap-2">
+                      {exp.highlights.map((highlight) => (
                         <span
                           key={highlight}
-                          className="text-[10px] px-3 py-1 rounded-full bg-white/3 border border-white/6 text-zinc-500"
+                          className="text-[10px] px-3 py-1 border border-[#ddd] text-[#333] hover:border-[#DA291C] hover:text-[#DA291C] transition-colors"
                         >
                           {highlight}
                         </span>
                       ))}
-                    </motion.div>
+                    </div>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Column - Sidebar */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="col-span-12 lg:col-span-4"
+          >
+            {/* Career Stats */}
+            <div className="bg-black text-white p-6 mb-6">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase text-[#999] mb-4 pb-2 border-b border-[#333]">
+                Career Statistics
+              </h4>
+              <div className="space-y-4">
+                <div className="text-center">
+                  <p className="font-serif text-4xl font-black text-[#DA291C]">4+</p>
+                  <p className="text-[10px] tracking-widest uppercase text-[#999] mt-1">
+                    Positions Held
+                  </p>
+                </div>
+                <div className="border-t border-[#333] pt-4 grid grid-cols-2 gap-3">
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-white">2</p>
+                    <p className="text-[10px] uppercase text-[#666]">Internships</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-white">2</p>
+                    <p className="text-[10px] uppercase text-[#666]">Part-Time</p>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </div>
+
+            {/* Tech Stack */}
+            <div className="border-2 border-black p-5">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black border-b-2 border-black pb-2 mb-4">
+                Technologies Used
+              </h4>
+              <ul className="space-y-2">
+                {[
+                  "Flutter & Mobile Development",
+                  "Angular & Astro Framework",
+                  "Laravel & MySQL",
+                  "Serverless Architecture",
+                  "IoT Integration",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-[#DA291C] font-serif">•</span>
+                    <span className="font-serif text-sm text-[#333]">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Notable Projects */}
+            <div className="mt-6 border border-[#ddd] p-5">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black mb-3">
+                Featured Projects
+              </h4>
+              <div className="space-y-3">
+                {[
+                  { name: "APJ Gate", type: "IoT Monitoring" },
+                  { name: "Prabayar Pintar", type: "Smart Energy" },
+                  { name: "Jadwal.in", type: "Scheduling System" },
+                  { name: "SIMONA", type: "Government MIS" },
+                ].map((project, i) => (
+                  <div key={i} className="flex items-center justify-between">
+                    <span className="font-serif text-sm text-black">{project.name}</span>
+                    <span className="text-[10px] text-[#DA291C]">{project.type}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Work Environment */}
+            <div className="mt-6 p-4 bg-[#f5f3f0] border-l-4 border-[#DA291C]">
+              <p className="text-[10px] tracking-widest uppercase text-[#DA291C] mb-1">
+                Work Environment
+              </p>
+              <p className="font-serif text-sm text-black leading-snug">
+                Experience across government institutions, research centers, and
+                technology companies with diverse project requirements.
+              </p>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Bottom flourish */}
+        {/* Bottom section - Decorative line */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-20 flex justify-center"
+          className="mt-16 border-t-4 border-black pt-6"
         >
-          <div className="h-px w-24 bg-linear-to-r from-transparent via-[#DA291C]/25 to-transparent" />
+          <div className="flex items-center justify-center gap-4">
+            <span className="w-20 h-px bg-[#999]" />
+            <span className="text-[#DA291C] text-2xl font-serif">&diams;</span>
+            <span className="w-20 h-px bg-[#999]" />
+          </div>
+        </motion.div>
+
+        {/* Edition footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-4 text-center"
+        >
+          <p className="text-[10px] tracking-widest uppercase text-[#666]">
+            End of Section &bull; Experience &bull; Vol. MMXXVI
+          </p>
         </motion.div>
       </div>
     </section>

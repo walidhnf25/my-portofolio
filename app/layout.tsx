@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AppWrapper from "@/components/AppWrapper";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,7 +20,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Walid Hanif Ataullah | Software Engineer & AI Researcher",
+  title: "Walid Hanif Ataullah",
   description:
     "Bachelor's graduate in Software Engineering specializing in Information Technology Adoption, Machine Learning, Deep Learning, and Internet of Things. View my research publications, projects, and connect with me.",
   keywords: [
@@ -71,8 +72,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
   },
 };
 
@@ -86,11 +87,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceMono.variable} font-sans antialiased`}
       >
-        <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <AppWrapper>
+          <Navbar />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </AppWrapper>
       </body>
     </html>
   );

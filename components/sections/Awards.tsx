@@ -19,7 +19,7 @@ const awards = [
     description:
       "Finalist in the International Unmanned Aerial Vehicles Competition, with a search-and-rescue UAV featuring first aid delivery.",
     type: "Competition",
-    accentColor: "#FFD700",
+    accentColor: "#DA291C",
   },
   {
     title: "3rd Place - National English Olympiad",
@@ -28,7 +28,7 @@ const awards = [
     description:
       "Awarded 3rd place in the English category at the Indonesian Youth Language and Spatial Orientation Olympiad, University Level.",
     type: "Competition",
-    accentColor: "#FFD700",
+    accentColor: "#DA291C",
   },
   {
     title: "2nd Place - National Poster Competition",
@@ -37,7 +37,7 @@ const awards = [
     description:
       "Awarded 2nd place in the Poster category at the National Public Discussion Competition with poster titled \"Langkah Pemilih Pemula Melawan Politik Uang Dalam Pemilu\".",
     type: "Competition",
-    accentColor: "#FFD700",
+    accentColor: "#DA291C",
   },
   {
     title: "Bronze Medal - Pateron Championship",
@@ -46,7 +46,7 @@ const awards = [
     description:
       "Awarded Bronze Medal in the Mathematics category at the Pateron Championship Competition Premiere, University Level.",
     type: "Competition",
-    accentColor: "#FFD700",
+    accentColor: "#DA291C",
   },
   {
     title: "Top 200 Teams - Indonesia Digital Tribe",
@@ -55,7 +55,7 @@ const awards = [
     description:
       "Selected as part of the Top 200 Teams in the national digital innovation program, with a calorie and protein calculator application.",
     type: "Competition",
-    accentColor: "#FFD700",
+    accentColor: "#DA291C",
   },
   {
     title: "2nd Place - Antar Bangsa Competition",
@@ -64,7 +64,7 @@ const awards = [
     description:
       "Awarded 2nd place in the Mathematics category at the Inter-Nation Competition, Senior High School Level.",
     type: "Competition",
-    accentColor: "#FFD700",
+    accentColor: "#DA291C",
   },
   {
     title: "3rd Place - Indonesian Student Olympic League",
@@ -73,7 +73,7 @@ const awards = [
     description:
       "Awarded 3rd place in the Physics category at the 14th Indonesian Student Olympic League, Senior High School Level.",
     type: "Competition",
-    accentColor: "#FFD700",
+    accentColor: "#DA291C",
   },
   {
     title: "Finalist - Nuclear Smart Competition",
@@ -82,153 +82,240 @@ const awards = [
     description:
       "Finalist in the Olympiad category at the Nuclear Smart Competition (NSC 2019), Senior High School Level.",
     type: "Competition",
-    accentColor: "#FFD700",
+    accentColor: "#DA291C",
   },
 ];
 
 export default function Awards() {
   return (
-    <section id="awards" className="relative py-40 overflow-hidden">
-      {/* Subtle ambient background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2 w-150 h-100 bg-[#DA291C]/2 blur-[150px] rounded-full" />
-      </div>
+    <section id="awards" className="relative py-16 overflow-hidden bg-[#FAF8F5]">
+      {/* Newspaper texture overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLy4KPC9zdmc+')] bg-repeat" />
 
-      <div className="mx-auto max-w-5xl px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header - Newspaper Masthead Style */}
+        <motion.header
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-10"
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-[10px] text-[#DA291C] uppercase tracking-[0.3em] mb-4"
-          >
-            Awards
-          </motion.p>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-5"
-          >
-            Recognition of{' '}
-            <span className="bg-linear-to-r from-[#DA291C] to-[#e64a3a] bg-clip-text text-transparent">
-              excellence
+          {/* Category tag */}
+          <div className="inline-block mb-3">
+            <span className="text-[10px] font-bold tracking-[0.25em] uppercase bg-[#DA291C] text-white px-3 py-1">
+              Hall of Fame
             </span>
-          </motion.h2>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          {/* Section title */}
+          <div className="border-b-4 border-black pb-3">
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-black leading-none">
+              RECOGNITION OF
+              <br />
+              <span className="text-[#DA291C]">EXCELLENCE</span>
+            </h2>
+          </div>
+
+          {/* Subheader */}
+          <div className="flex items-center justify-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] mt-3">
+            <span>Academic Achievements</span>
+            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span>Competition Wins</span>
+            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span>National Recognition</span>
+          </div>
+        </motion.header>
+
+        {/* Main Content */}
+        <div className="grid grid-cols-12 gap-8">
+          {/* Left Column - Awards Grid */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="text-sm text-zinc-500 max-w-xl"
+            className="col-span-12 lg:col-span-8"
           >
-            Honoring achievements in competitions, research, and academic excellence throughout my journey
-          </motion.p>
-        </motion.div>
+            {/* Main headline */}
+            <h3 className="font-serif text-2xl sm:text-3xl font-black text-black mb-2 leading-tight">
+              Honoring achievements in competitions, research, and academic excellence throughout my journey
+            </h3>
 
-        {/* Awards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {awards.map((awards, index) => (
-            <motion.div
-              key={awards.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.08 }}
-              viewport={{ once: true }}
-              className="relative group"
-            >
-              {/* Card */}
-              <div
-                className="relative rounded-2xl p-5 sm:p-6 border transition-all duration-500 group-hover:border-white/8 h-full"
-                style={{
-                  background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
-                  borderColor: "rgba(255,255,255,0.04)",
-                }}
-              >
-                {/* Subtle glow on hover */}
-                <div
-                  className="absolute -inset-6 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"
-                  style={{
-                    background: `radial-gradient(ellipse at top, ${awards.accentColor}06, transparent 60%)`,
-                  }}
-                />
+            {/* Byline */}
+            <div className="flex items-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] border-b border-dashed border-[#999] pb-3 mb-6">
+              <span>By Awards Desk</span>
+              <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+              <span>Achievement Section</span>
+            </div>
 
-                <div className="space-y-3 sm:space-y-4">
-                  {/* Type badge & Date */}
-                  <div className="flex items-center justify-between gap-2">
-                    <span
-                      className="px-2.5 py-1 rounded-full text-[9px] font-medium tracking-wide border"
-                      style={{
-                        backgroundColor: `${awards.accentColor}08`,
-                        borderColor: `${awards.accentColor}20`,
-                        color: awards.accentColor,
-                      }}
-                    >
-                      {awards.type}
-                    </span>
-                    <span className="text-[10px] text-zinc-600 uppercase tracking-widest">
-                      {awards.date}
-                    </span>
+            {/* Awards Grid - Newspaper style */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {awards.map((award, index) => (
+                <motion.article
+                  key={award.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.06 }}
+                  viewport={{ once: true }}
+                  className="relative group"
+                >
+                  {/* Card */}
+                  <div className="border-2 border-black p-4 bg-white relative hover:border-[#DA291C] transition-colors h-full">
+                    {/* Red accent bar */}
+                    <div className="absolute top-0 left-0 w-full h-1 bg-[#DA291C]" />
+
+                    {/* Header */}
+                    <div className="flex items-start justify-between gap-2 mb-3">
+                      <span className="text-[9px] font-bold tracking-[0.2em] uppercase bg-black text-white px-2 py-1">
+                        {award.type}
+                      </span>
+                      <span className="text-[10px] text-[#666] uppercase tracking-wider">
+                        {award.date}
+                      </span>
+                    </div>
+
+                    {/* Article number */}
+                    <div className="absolute top-2 right-2 font-serif text-5xl font-black text-[#DA291C]/10 leading-none">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+
+                    {/* Title */}
+                    <h4 className="font-serif text-base font-black text-black leading-tight mb-2 pr-12">
+                      {award.title}
+                    </h4>
+
+                    {/* Organization */}
+                    <p className="text-[11px] tracking-widest uppercase text-[#666] mb-2">
+                      {award.organization}
+                    </p>
+
+                    {/* Description */}
+                    <p className="font-serif text-xs text-[#444] leading-relaxed border-l-2 border-[#DA291C] pl-3">
+                      {award.description}
+                    </p>
                   </div>
+                </motion.article>
+              ))}
+            </div>
+          </motion.div>
 
-                  {/* Title */}
-                  <motion.h3
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.15 + index * 0.05 }}
-                    viewport={{ once: true }}
-                    className="text-base sm:text-base font-semibold text-white tracking-tight leading-tight"
-                  >
-                    {awards.title}
-                  </motion.h3>
-
-                  {/* Organization */}
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 + index * 0.05 }}
-                    viewport={{ once: true }}
-                    className="text-xs sm:text-xs text-zinc-500"
-                  >
-                    {awards.organization}
-                  </motion.p>
-
-                  {/* Description */}
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.25 + index * 0.05 }}
-                    viewport={{ once: true }}
-                    className="text-xs text-zinc-600 leading-relaxed line-clamp-3 sm:line-clamp-3"
-                  >
-                    {awards.description}
-                  </motion.p>
+          {/* Right Column - Sidebar */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="col-span-12 lg:col-span-4"
+          >
+            {/* Achievement Stats */}
+            <div className="bg-black text-white p-6 mb-6">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase text-[#999] mb-4 pb-2 border-b border-[#333]">
+                Achievement Summary
+              </h4>
+              <div className="space-y-4">
+                <div className="text-center">
+                  <p className="font-serif text-4xl font-black text-[#DA291C]">9</p>
+                  <p className="text-[10px] tracking-widest uppercase text-[#999] mt-1">
+                    Total Awards
+                  </p>
+                </div>
+                <div className="border-t border-[#333] pt-4 grid grid-cols-3 gap-2">
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-white">1</p>
+                    <p className="text-[9px] uppercase text-[#666]">Graduate</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-white">1</p>
+                    <p className="text-[9px] uppercase text-[#666]">Finalist</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-white">7</p>
+                    <p className="text-[9px] uppercase text-[#666]">Competition</p>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            </div>
+
+            {/* Award Tiers */}
+            <div className="border-2 border-black p-5">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black border-b-2 border-black pb-2 mb-4">
+                Award Categories
+              </h4>
+              <ul className="space-y-2">
+                {[
+                  "National Competitions",
+                  "Academic Olympiads",
+                  "Innovation Programs",
+                  "University Level",
+                  "High School Level",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-[#DA291C] font-serif">•</span>
+                    <span className="font-serif text-sm text-[#333]">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Notable Achievement */}
+            <div className="mt-6 p-5 bg-[#f5f3f0] border-l-4 border-[#DA291C]">
+              <p className="text-[10px] tracking-widest uppercase text-[#DA291C] mb-2">
+                Featured Achievement
+              </p>
+              <p className="font-serif text-base font-black text-black mb-1">
+                Outstanding Graduate Award
+              </p>
+              <p className="font-serif text-sm text-[#444] leading-snug">
+                Best graduate from School of Computing, Telkom University,
+                demonstrating excellence in both academic and non-academic
+                achievements.
+              </p>
+            </div>
+
+            {/* Years Active */}
+            <div className="mt-6 border border-[#ddd] p-5">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black mb-3">
+                Years of Achievement
+              </h4>
+              <div className="flex items-center justify-between">
+                <span className="font-serif text-2xl font-black text-black">2019</span>
+                <span className="text-[#DA291C] font-serif text-xl">—</span>
+                <span className="font-serif text-2xl font-black text-black">2025</span>
+              </div>
+              <p className="text-[10px] text-center tracking-widest uppercase text-[#666] mt-1">
+                6 Years of Excellence
+              </p>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Bottom flourish */}
+        {/* Bottom section - Decorative line */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-20 flex justify-center"
+          className="mt-16 border-t-4 border-black pt-6"
         >
-          <div className="h-px w-24 bg-linear-to-r from-transparent via-[#DA291C]/25 to-transparent" />
+          <div className="flex items-center justify-center gap-4">
+            <span className="w-20 h-px bg-[#999]" />
+            <span className="text-[#DA291C] text-2xl font-serif">&diams;</span>
+            <span className="w-20 h-px bg-[#999]" />
+          </div>
+        </motion.div>
+
+        {/* Edition footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-4 text-center"
+        >
+          <p className="text-[10px] tracking-widest uppercase text-[#666]">
+            End of Section &bull; Awards &bull; Vol. MMXXVI
+          </p>
         </motion.div>
       </div>
     </section>

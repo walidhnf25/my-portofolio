@@ -95,233 +95,289 @@ const publications = [
 
 export default function Publications() {
   return (
-    <section id="publications" className="relative py-40 overflow-hidden">
-      {/* Subtle ambient background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2 w-125 h-100 bg-[#DA291C]/2 blur-[150px] rounded-full" />
-      </div>
+    <section id="publications" className="relative py-16 overflow-hidden bg-[#FAF8F5]">
+      {/* Newspaper texture overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLy4KPC9zdmc+')] bg-repeat" />
 
-      <div className="mx-auto max-w-5xl px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header - Newspaper Masthead Style */}
+        <motion.header
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-10"
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-[10px] text-[#DA291C] uppercase tracking-[0.3em] mb-4"
-          >
-            Publications
-          </motion.p>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-5"
-          >
-            Pushing the boundaries of{' '}
-            <span className="bg-linear-to-r from-[#DA291C] to-[#e64a3a] bg-clip-text text-transparent">
-              knowledge
+          {/* Category tag */}
+          <div className="inline-block mb-3">
+            <span className="text-[10px] font-bold tracking-[0.25em] uppercase bg-[#DA291C] text-white px-3 py-1">
+              Research Publications
             </span>
-          </motion.h2>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          {/* Section title */}
+          <div className="border-b-4 border-black pb-3">
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-black leading-none">
+              PUSHING THE BOUNDARIES OF
+              <br />
+              <span className="text-[#DA291C]">KNOWLEDGE</span>
+            </h2>
+          </div>
+
+          {/* Subheader */}
+          <div className="flex items-center justify-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] mt-3">
+            <span>Scientific Research</span>
+            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span>AI & Machine Learning</span>
+            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span>Information Systems</span>
+          </div>
+        </motion.header>
+
+        {/* Main Content */}
+        <div className="grid grid-cols-12 gap-8">
+          {/* Left Column - Publications List */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="text-sm text-zinc-500 max-w-xl"
+            className="col-span-12 lg:col-span-8"
           >
-            Contributing to scientific knowledge through interdisciplinary research in AI, machine learning, and information systems
-          </motion.p>
-        </motion.div>
+            {/* Main headline */}
+            <h3 className="font-serif text-2xl sm:text-3xl font-black text-black mb-2 leading-tight">
+              Contributing to scientific knowledge through interdisciplinary research in AI, machine learning, and information systems
+            </h3>
 
-        {/* Publications List */}
-        <div className="space-y-6">
-          {publications.map((pub, index) => (
-            <motion.div
-              key={pub.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: index * 0.12 }}
-              viewport={{ once: true }}
-              className="relative group"
-            >
-              {/* Card */}
-              <div
-                className="relative rounded-2xl p-6 sm:p-8 border transition-all duration-500 group-hover:border-white/8"
-                style={{
-                  background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
-                  borderColor: "rgba(255,255,255,0.04)",
-                }}
-              >
-                {/* Subtle glow on hover */}
-                <div
-                  className="absolute -inset-6 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"
-                  style={{
-                    background: "radial-gradient(ellipse at left, rgba(218,41,28,0.06), transparent 60%)",
-                  }}
-                />
+            {/* Byline */}
+            <div className="flex items-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] border-b border-dashed border-[#999] pb-3 mb-6">
+              <span>By Research Desk</span>
+              <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+              <span>Publications Section</span>
+            </div>
 
-                {/* Year indicator - stacked on mobile, row on desktop */}
-                <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <span className="text-2xl sm:text-3xl font-bold text-[#DA291C] tracking-tight">
-                    {pub.year}
-                  </span>
-                  <div className="w-8 sm:w-12 h-px bg-[#DA291C]/30" />
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-600">
-                    {pub.publisher}
-                  </span>
-                  {pub.indexing && (
-                    <span className="text-[10px] px-2.5 py-1 rounded-full bg-[#DA291C]/10 border border-[#DA291C]/20 text-[#DA291C]">
-                      {pub.indexing}
-                    </span>
-                  )}
-                  {pub.role && (
-                    <span className="text-[10px] px-2.5 py-1 rounded-full bg-white/5 border border-white/8 text-zinc-400">
-                      {pub.role}
-                    </span>
-                  )}
-                </div>
+            {/* Publications List */}
+            <div className="space-y-4">
+              {publications.map((pub, index) => (
+                <motion.article
+                  key={pub.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
+                  viewport={{ once: true }}
+                  className="relative group"
+                >
+                  {/* Card */}
+                  <div className="border-2 border-black p-5 bg-white relative hover:border-[#DA291C] transition-colors">
+                    {/* Red accent bar */}
+                    <div className="absolute top-0 left-0 w-full h-1 bg-[#DA291C]" />
 
-                {/* Content */}
-                <div>
-                  <motion.h3
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-lg sm:text-xl font-semibold text-white mb-2 tracking-tight leading-tight"
-                  >
-                    {pub.title}
-                  </motion.h3>
+                    {/* Article number */}
+                    <div className="absolute top-2 right-2 font-serif text-5xl font-black text-[#DA291C]/10 leading-none">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
 
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-sm text-zinc-500 mb-1"
-                  >
-                    {pub.journal}
-                  </motion.p>
-
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.35 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-xs text-zinc-600 mb-4"
-                  >
-                    {pub.authors}
-                  </motion.p>
-
-                  {/* Tags */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex flex-wrap gap-2"
-                  >
-                    {pub.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] px-3 py-1 rounded-full bg-white/3 border border-white/6 text-zinc-500"
-                      >
-                        {tag}
+                    {/* Header */}
+                    <div className="flex flex-wrap items-center gap-3 mb-3">
+                      <span className="font-serif text-2xl font-black text-[#DA291C]">
+                        {pub.year}
                       </span>
-                    ))}
-                  </motion.div>
+                      <span className="w-8 h-px bg-[#DA291C]" />
+                      <span className="text-[10px] tracking-widest uppercase text-[#666]">
+                        {pub.publisher}
+                      </span>
+                      {pub.indexing && (
+                        <span className="text-[9px] font-bold tracking-wider uppercase bg-black text-white px-2 py-1">
+                          {pub.indexing}
+                        </span>
+                      )}
+                      {pub.role && (
+                        <span className="text-[9px] tracking-wider uppercase border border-[#ddd] text-[#666] px-2 py-1">
+                          {pub.role}
+                        </span>
+                      )}
+                    </div>
 
-                  {/* Link */}
-                  {pub.link && (
-                    <motion.a
-                      href={pub.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.45 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="inline-flex items-center gap-2 mt-4 text-xs text-[#DA291C] hover:text-[#e64a3a] transition-colors"
-                    >
-                      View Publication
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </motion.a>
-                  )}
+                    {/* Title */}
+                    <h4 className="font-serif text-base sm:text-lg font-black text-black leading-tight mb-2 pr-12">
+                      {pub.title}
+                    </h4>
+
+                    {/* Journal */}
+                    <p className="font-serif text-xs text-[#444] mb-2 italic">
+                      {pub.journal}
+                    </p>
+
+                    {/* Authors */}
+                    <p className="text-[11px] text-[#666] mb-3">
+                      {pub.authors}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {pub.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[9px] px-2 py-1 border border-[#ddd] text-[#444] hover:border-[#DA291C] hover:text-[#DA291C] transition-colors"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Link */}
+                    {pub.link && (
+                      <a
+                        href={pub.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-xs text-[#DA291C] hover:text-black transition-colors font-bold"
+                      >
+                        View Publication
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Column - Sidebar */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="col-span-12 lg:col-span-4"
+          >
+            {/* Publication Stats */}
+            <div className="bg-black text-white p-6 mb-6">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase text-[#999] mb-4 pb-2 border-b border-[#333]">
+                Research Summary
+              </h4>
+              <div className="space-y-4">
+                <div className="text-center">
+                  <p className="font-serif text-4xl font-black text-[#DA291C]">8</p>
+                  <p className="text-[10px] tracking-widest uppercase text-[#999] mt-1">
+                    Publications
+                  </p>
+                </div>
+                <div className="border-t border-[#333] pt-4 grid grid-cols-2 gap-3">
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-white">7</p>
+                    <p className="text-[9px] uppercase text-[#666]">Scopus</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-white">1</p>
+                    <p className="text-[9px] uppercase text-[#666]">SINTA 3</p>
+                  </div>
+                </div>
+                <div className="border-t border-[#333] pt-4">
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-white">4</p>
+                    <p className="text-[9px] uppercase text-[#666]">1st Author</p>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            </div>
+
+            {/* Research Areas */}
+            <div className="border-2 border-black p-5">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black border-b-2 border-black pb-2 mb-4">
+                Research Focus Areas
+              </h4>
+              <ul className="space-y-2">
+                {[
+                  "Pose Recognition & Action Detection",
+                  "Semantic Segmentation",
+                  "UAV Technology & Control Systems",
+                  "IoT Monitoring Solutions",
+                  "Design Thinking & UX Research",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-[#DA291C] font-serif">•</span>
+                    <span className="font-serif text-sm text-[#333]">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Technologies */}
+            <div className="mt-6 border border-[#ddd] p-5">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black mb-3">
+                Technologies & Methods
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {["MediaPipe", "LSTM", "DeepLabV3", "MobileNet", "MAVLink", "GPS", "Agile Scrum"].map((tech, i) => (
+                  <span key={i} className="text-[9px] px-2 py-1 bg-[#f5f3f0] text-[#444]">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Research Philosophy Quote */}
+            <div className="mt-6 p-5 bg-[#f5f3f0] border-l-4 border-[#DA291C]">
+              <p className="text-[10px] tracking-widest uppercase text-[#DA291C] mb-2">
+                Research Philosophy
+              </p>
+              <p className="font-serif text-sm italic text-[#333] leading-relaxed">
+                &ldquo;I believe in conducting research that bridges theoretical
+                frameworks with practical applications, focusing on understanding
+                technology adoption in diverse contexts and leveraging AI and IoT
+                to address real-world challenges.&rdquo;
+              </p>
+            </div>
+
+            {/* Conference Types */}
+            <div className="mt-6 p-4 border border-[#ddd]">
+              <h4 className="text-[10px] tracking-widest uppercase font-bold text-black mb-2">
+                Publication Venues
+              </h4>
+              <div className="space-y-2">
+                {[
+                  { name: "IEEE Xplore", count: "7 papers" },
+                  { name: "IJoICT Journal", count: "1 paper" },
+                ].map((venue, i) => (
+                  <div key={i} className="flex items-center justify-between">
+                    <span className="font-serif text-sm text-black">{venue.name}</span>
+                    <span className="text-[10px] text-[#DA291C]">{venue.count}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Publications Philosophy Quote */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16 relative"
-        >
-          <div
-            className="relative rounded-2xl p-8 sm:p-10 border"
-            style={{
-              background: "linear-gradient(145deg, rgba(10,10,10,0.9), rgba(6,6,6,0.95))",
-              borderColor: "rgba(255,255,255,0.04)",
-            }}
-          >
-            {/* Decorative quote mark */}
-            <div className="absolute top-6 left-6 sm:top-8 sm:left-8 text-5xl sm:text-6xl font-serif text-[#DA291C]/20 leading-none select-none">
-              &ldquo;
-            </div>
-
-            <div className="relative pl-10 sm:pl-12">
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                viewport={{ once: true }}
-                className="text-base sm:text-lg md:text-xl text-white font-light leading-relaxed mb-5 sm:mb-6"
-              >
-                I believe in conducting research that bridges theoretical frameworks with practical applications, focusing on understanding technology adoption in diverse contexts and leveraging AI and IoT to address real-world challenges.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                viewport={{ once: true }}
-                className="flex items-center gap-3"
-              >
-                <div className="w-6 sm:w-8 h-px bg-[#DA291C]/40" />
-                <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-600">
-                  Research Philosophy
-                </span>
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Bottom flourish */}
+        {/* Bottom section - Decorative line */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-20 flex justify-center"
+          className="mt-16 border-t-4 border-black pt-6"
         >
-          <div className="h-px w-24 bg-linear-to-r from-transparent via-[#DA291C]/25 to-transparent" />
+          <div className="flex items-center justify-center gap-4">
+            <span className="w-20 h-px bg-[#999]" />
+            <span className="text-[#DA291C] text-2xl font-serif">&diams;</span>
+            <span className="w-20 h-px bg-[#999]" />
+          </div>
+        </motion.div>
+
+        {/* Edition footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-4 text-center"
+        >
+          <p className="text-[10px] tracking-widest uppercase text-[#666]">
+            End of Section &bull; Publications &bull; Vol. MMXXVI
+          </p>
         </motion.div>
       </div>
     </section>

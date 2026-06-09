@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUpIcon, AwardIcon, CodeIcon, FileBadgeIcon, GraduationCapIcon } from "@/components/icons";
+import { CodeIcon, AwardIcon, FileBadgeIcon, GraduationCapIcon, TrendingUpIcon } from "@/components/icons";
 
 const stats = [
   { icon: CodeIcon, value: "12+", label: "Projects" },
@@ -11,134 +11,226 @@ const stats = [
   { icon: TrendingUpIcon, value: "7+", label: "Publications" },
 ];
 
+const expertiseAreas = [
+  "Information Technology Adoption",
+  "Machine Learning",
+  "Deep Learning",
+  "Internet of Things",
+];
+
 export default function About() {
   return (
-    <section id="about" className="relative py-40 overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-150 h-100 bg-[#DA291C]/2 blur-[150px] rounded-full" />
-      </div>
+    <section id="about" className="relative py-16 overflow-hidden bg-[#FAF8F5]">
+      {/* Newspaper texture overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLy4KPC9zdmc+')] bg-repeat" />
 
-      <div className="mx-auto max-w-5xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header - Newspaper Masthead Style */}
+        <motion.header
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-10"
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-[10px] text-[#DA291C] uppercase tracking-[0.3em] mb-4"
-          >
-            About
-          </motion.p>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-5"
-          >
-            Building the future through{' '}
-            <span className="bg-linear-to-r from-[#DA291C] to-[#e64a3a] bg-clip-text text-transparent">
-              intelligent systems
+          {/* Category tag */}
+          <div className="inline-block mb-3">
+            <span className="text-[10px] font-bold tracking-[0.25em] uppercase bg-[#DA291C] text-white px-3 py-1">
+              About the Author
             </span>
-          </motion.h2>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-sm text-zinc-500 max-w-xl"
-          >
-            Bachelor&apos;s graduate in Software Engineering with strong academic and research experience in AI, machine learning, and information systems
-          </motion.p>
-        </motion.div>
+          {/* Section title */}
+          <div className="border-b-4 border-black pb-3">
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-black leading-none">
+              THE MAN BEHIND
+              <br />
+              <span className="text-[#DA291C]">THE INNOVATION</span>
+            </h2>
+          </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Subheader */}
+          <div className="flex items-center justify-between gap-4 text-[10px] tracking-[0.15em] uppercase text-[#666] mt-3">
+            <span>Software Engineering Graduate</span>
+            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span>Research & Development</span>
+            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span>AI Enthusiast</span>
+          </div>
+        </motion.header>
+
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-12 gap-8">
+          {/* Left Column - Main Story */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="lg:col-span-7"
+            className="col-span-12 lg:col-span-7"
           >
-            <div className="space-y-5 text-sm sm:text-base text-zinc-400 leading-relaxed">
-              <p>
-                Actively contributed to multiple Scopus-indexed publications and developed data-driven and AI-based solutions through interdisciplinary research and real-world projects.
+            {/* Main headline */}
+            <h3 className="font-serif text-2xl sm:text-3xl font-black text-black mb-4 leading-tight">
+              Building the Future Through{" "}
+              <span className="italic text-[#DA291C]">Intelligent</span>{" "}
+              Systems
+            </h3>
+
+            {/* Byline */}
+            <div className="flex items-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] border-b border-dashed border-[#999] pb-3 mb-4">
+              <span>By Editorial Team</span>
+              <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+              <span>Profile Feature</span>
+            </div>
+
+            {/* Main article text with drop cap */}
+            <div className="space-y-4">
+              <p className="font-serif text-[15px] leading-[1.75] text-[#333] first-letter:text-5xl first-letter:font-black first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-[#DA291C] first-letter:leading-[0.8]">
+                Bachelor&apos;s graduate in Software Engineering with strong
+                academic and research experience in AI, machine learning, and
+                information systems. Actively contributed to multiple
+                Scopus-indexed publications and developed data-driven and
+                AI-based solutions through interdisciplinary research and
+                real-world projects.
               </p>
-              <p>
-                Highly motivated to pursue advanced studies and contribute to the development of impactful, technology-driven solutions for societal and industrial challenges.
+
+              <p className="font-serif text-[15px] leading-[1.75] text-[#333]">
+                Highly motivated to pursue advanced studies and contribute to
+                the development of impactful, technology-driven solutions for
+                societal and industrial challenges. Bridging the gap between
+                human needs and technological innovation.
               </p>
             </div>
 
-            <div className="mt-10">
-              <p className="text-[10px] text-zinc-600 uppercase tracking-widest mb-5">
-                Research Interests
+            {/* Pull quote */}
+            <div className="mt-8 p-5 bg-[#f5f3f0] border-l-4 border-[#DA291C]">
+              <p className="font-serif text-lg italic text-[#333] leading-relaxed">
+                &ldquo;Technology is not just about code — it&apos;s about
+                solving real problems and creating meaningful impact.&rdquo;
               </p>
-              <div className="flex flex-wrap gap-2">
-                {["Information Technology Adoption", "Machine Learning", "Deep Learning", "Internet of Things"].map((interest, i) => (
-                  <span
+            </div>
+
+            {/* Research Interests Section */}
+            <div className="mt-10">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black border-b-2 border-black pb-2 mb-4">
+                Research Interests
+              </h4>
+              <div className="grid grid-cols-2 gap-3">
+                {expertiseAreas.map((interest, i) => (
+                  <div
                     key={interest}
-                    className="px-3 py-1.5 text-xs font-medium rounded-full bg-white/3 border border-white/6 text-zinc-400 hover:border-[#DA291C]/30 hover:text-white transition-colors"
+                    className="flex items-center gap-2 p-3 border border-[#ddd] hover:border-[#DA291C] hover:bg-[#faf8f5] transition-all duration-200"
                   >
-                    {interest}
-                  </span>
+                    <span className="text-[#DA291C] font-serif">0{i + 1}.</span>
+                    <span className="font-serif text-sm text-[#333]">{interest}</span>
+                  </div>
                 ))}
               </div>
             </div>
           </motion.div>
 
+          {/* Right Column - Stats & Achievements */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
-            className="lg:col-span-5"
+            className="col-span-12 lg:col-span-5"
           >
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {stats.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
-                  viewport={{ once: true }}
-                  className="group relative p-5 sm:p-6 rounded-2xl border transition-all duration-300"
-                  style={{
-                    background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
-                    borderColor: "rgba(255,255,255,0.04)",
-                  }}
-                >
-                  <stat.icon className="w-5 h-5 text-[#DA291C] mb-3 sm:mb-4" />
-                  <p className="text-2xl sm:text-3xl font-bold text-white mb-1">{stat.value}</p>
-                  <p className="text-[10px] sm:text-[11px] text-zinc-500 uppercase tracking-widest">{stat.label}</p>
+            {/* Stats box - Main achievement */}
+            <div className="bg-black text-white p-6 mb-6">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase text-[#999] mb-4 pb-2 border-b border-[#333]">
+                Career Highlights
+              </h4>
+              <div className="grid grid-cols-2 gap-4">
+                {stats.slice(0, 4).map((stat, i) => (
+                  <div key={stat.label} className="text-center">
+                    <stat.icon className="w-5 h-5 text-[#DA291C] mx-auto mb-2" />
+                    <p className="font-serif text-2xl sm:text-3xl font-black text-white">
+                      {stat.value}
+                    </p>
+                    <p className="text-[10px] tracking-[0.1em] uppercase text-[#999]">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              {/* Featured stat */}
+              <div className="mt-6 pt-4 border-t border-[#333] text-center">
+                <p className="font-serif text-4xl font-black text-[#DA291C]">
+                  {stats[4].value}
+                </p>
+                <p className="text-[10px] tracking-[0.15em] uppercase text-[#999] mt-1">
+                  {stats[4].label}
+                </p>
+              </div>
+            </div>
 
-                  <div
-                    className="absolute -inset-6 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
-                    style={{
-                      background: "radial-gradient(ellipse at center, rgba(218,41,28,0.06), transparent 60%)",
-                    }}
-                  />
-                </motion.div>
-              ))}
+            {/* Expertise box */}
+            <div className="border-2 border-black p-5">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black border-b-2 border-black pb-2 mb-4">
+                Core Competencies
+              </h4>
+              <ul className="space-y-3">
+                {[
+                  "Software Engineering",
+                  "Machine Learning & Deep Learning",
+                  "Data-Driven Solutions",
+                  "AI-Based Innovation",
+                  "Research & Development",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-[#DA291C] font-serif text-xl">&bull;</span>
+                    <span className="font-serif text-sm text-[#333]">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Publication highlight */}
+            <div className="mt-6 p-5 border border-[#ddd]">
+              <div className="flex items-start gap-3">
+                <span className="text-[#DA291C] font-serif text-3xl font-black">S</span>
+                <div>
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-[#DA291C] mb-1">
+                    Scopus Indexed
+                  </p>
+                  <p className="font-serif text-sm text-black leading-snug">
+                    Multiple peer-reviewed publications in top-tier academic
+                    journals and conferences
+                  </p>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
 
+        {/* Bottom section - Decorative line */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-20 flex justify-center"
+          className="mt-16 border-t-4 border-black pt-6"
         >
-          <div className="h-px w-24 bg-linear-to-r from-transparent via-[#DA291C]/25 to-transparent" />
+          <div className="flex items-center justify-center gap-4">
+            <span className="w-20 h-px bg-[#999]" />
+            <span className="text-[#DA291C] text-2xl font-serif">&diams;</span>
+            <span className="w-20 h-px bg-[#999]" />
+          </div>
+        </motion.div>
+
+        {/* Edition footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-4 text-center"
+        >
+          <p className="text-[10px] tracking-widest uppercase text-[#666]">
+            End of Feature &bull; About the Author &bull; Vol. MMXXVI
+          </p>
         </motion.div>
       </div>
     </section>

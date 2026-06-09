@@ -28,145 +28,272 @@ const copyrights = [
 
 export default function Copyrights() {
   return (
-    <section id="copyrights" className="relative py-40 overflow-hidden">
-      {/* Subtle ambient background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-100 bg-[#DA291C]/2 blur-[150px] rounded-full" />
-      </div>
+    <section id="copyrights" className="relative py-16 overflow-hidden bg-[#FAF8F5]">
+      {/* Newspaper texture overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLy4KPC9zdmc+')] bg-repeat" />
 
-      <div className="mx-auto max-w-4xl px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header - Newspaper Masthead Style */}
+        <motion.header
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-10"
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-[10px] text-[#DA291C] uppercase tracking-[0.3em] mb-4"
-          >
-            Copyrights
-          </motion.p>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-5"
-          >
-            Protecting{' '}
-            <span className="bg-linear-to-r from-[#DA291C] to-[#e64a3a] bg-clip-text text-transparent">
-              innovation
+          {/* Category tag */}
+          <div className="inline-block mb-3">
+            <span className="text-[10px] font-bold tracking-[0.25em] uppercase bg-[#DA291C] text-white px-3 py-1">
+              Intellectual Property
             </span>
-          </motion.h2>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          {/* Section title */}
+          <div className="border-b-4 border-black pb-3">
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-black leading-none">
+              PROTECTING
+              <br />
+              <span className="text-[#DA291C]">INNOVATION</span>
+            </h2>
+          </div>
+
+          {/* Subheader */}
+          <div className="flex items-center justify-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] mt-3">
+            <span>Intellectual Property</span>
+            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span>Official Registration</span>
+            <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+            <span>Innovation Rights</span>
+          </div>
+        </motion.header>
+
+        {/* Main Content */}
+        <div className="grid grid-cols-12 gap-8">
+          {/* Left Column - Copyrights List */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="text-sm text-zinc-500 max-w-xl"
+            className="col-span-12 lg:col-span-8"
           >
-            Officially registered intellectual property contributions through the Directorate General of Intellectual Property, Indonesia
-          </motion.p>
-        </motion.div>
+            {/* Main headline */}
+            <h3 className="font-serif text-2xl sm:text-3xl font-black text-black mb-2 leading-tight">
+              Officially registered intellectual property contributions through the Directorate General of Intellectual Property, Indonesia
+            </h3>
 
-        {/* Copyrights List */}
-        <div className="space-y-6">
-          {copyrights.map((copyrights, index) => (
-            <motion.div
-              key={copyrights.registrationNo}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: index * 0.12 }}
-              viewport={{ once: true }}
-              className="relative group"
-            >
-              {/* Card */}
-              <div
-                className="relative rounded-2xl p-6 sm:p-8 border transition-all duration-500 group-hover:border-white/8"
-                style={{
-                  background: "linear-gradient(145deg, rgba(10,10,10,0.85), rgba(6,6,6,0.95))",
-                  borderColor: "rgba(255,255,255,0.04)",
-                }}
-              >
-                {/* Subtle glow on hover */}
-                <div
-                  className="absolute -inset-6 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"
-                  style={{
-                    background: "radial-gradient(ellipse at top left, rgba(218,41,28,0.06), transparent 60%)",
-                  }}
-                />
+            {/* Byline */}
+            <div className="flex items-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#666] border-b border-dashed border-[#999] pb-3 mb-6">
+              <span>By Legal Desk</span>
+              <span className="w-1 h-1 rounded-full bg-[#DA291C]" />
+              <span>Copyrights Section</span>
+            </div>
 
-                {/* Date and role */}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4 sm:mb-5">
-                  <span className="text-[10px] text-[#DA291C] uppercase tracking-[0.2em]">
-                    {copyrights.date}
-                  </span>
-                  <div
-                    className="inline-flex self-start sm:self-auto px-3 py-1.5 rounded-full text-[10px] font-medium tracking-wide border"
-                    style={{
-                      backgroundColor: "rgba(218,41,28,0.08)",
-                      borderColor: "rgba(218,41,28,0.2)",
-                      color: "#DA291C",
-                    }}
-                  >
-                    {copyrights.role}
+            {/* Copyrights List */}
+            <div className="space-y-4">
+              {copyrights.map((copyright, index) => (
+                <motion.article
+                  key={copyright.registrationNo}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.12 }}
+                  viewport={{ once: true }}
+                  className="relative group"
+                >
+                  {/* Card */}
+                  <div className="border-2 border-black p-5 bg-white relative hover:border-[#DA291C] transition-colors">
+                    {/* Red accent bar */}
+                    <div className="absolute top-0 left-0 w-full h-1 bg-[#DA291C]" />
+
+                    {/* Article number */}
+                    <div className="absolute top-2 right-2 font-serif text-5xl font-black text-[#DA291C]/10 leading-none">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+
+                    {/* Header */}
+                    <div className="flex flex-wrap items-center gap-3 mb-3">
+                      <span className="text-[10px] tracking-widest uppercase text-[#DA291C] font-bold">
+                        {copyright.date}
+                      </span>
+                      <span className="w-1 h-1 rounded-full bg-[#999]" />
+                      <span className="text-[9px] font-bold tracking-wider uppercase bg-black text-white px-2 py-1">
+                        {copyright.role}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h4 className="font-serif text-lg sm:text-xl font-black text-black leading-tight mb-2 pr-12">
+                      {copyright.title}
+                    </h4>
+
+                    {/* Organization */}
+                    <p className="font-serif text-sm text-[#444] mb-3">
+                      {copyright.organization}
+                    </p>
+
+                    {/* Registration Number */}
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] tracking-widest uppercase text-[#666]">
+                        Registration No.
+                      </span>
+                      <span className="font-serif text-sm font-bold text-black">
+                        {copyright.registrationNo}
+                      </span>
+                    </div>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+
+            {/* Official Notice */}
+            <div className="mt-8 p-5 bg-[#f5f3f0] border-l-4 border-[#DA291C]">
+              <p className="font-serif text-sm text-[#333] leading-relaxed">
+                All intellectual property rights are officially registered and protected under Indonesian law through the{" "}
+                <span className="font-bold">Directorate General of Intellectual Property (DGIP)</span>, Ministry of Law and Human Rights, Republic of Indonesia.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Sidebar */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="col-span-12 lg:col-span-4"
+          >
+            {/* Copyright Stats */}
+            <div className="bg-black text-white p-6 mb-6">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase text-[#999] mb-4 pb-2 border-b border-[#333]">
+                IP Registry Summary
+              </h4>
+              <div className="space-y-4">
+                <div className="text-center">
+                  <p className="font-serif text-4xl font-black text-[#DA291C]">3</p>
+                  <p className="text-[10px] tracking-widest uppercase text-[#999] mt-1">
+                    Registered Copyrights
+                  </p>
+                </div>
+                <div className="border-t border-[#333] pt-4 grid grid-cols-2 gap-3">
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-white">3</p>
+                    <p className="text-[9px] uppercase text-[#666]">Co-creator</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-white">2025</p>
+                    <p className="text-[9px] uppercase text-[#666]">Year</p>
                   </div>
                 </div>
+              </div>
+            </div>
 
-                {/* Content */}
-                <div>
-                  <motion.h3
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3 tracking-tight leading-tight"
-                  >
-                    {copyrights.title}
-                  </motion.h3>
+            {/* Protected Areas */}
+            <div className="border-2 border-black p-5">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black border-b-2 border-black pb-2 mb-4">
+                Protected Categories
+              </h4>
+              <ul className="space-y-2">
+                {[
+                  "Software Applications",
+                  "Dashboard Systems",
+                  "Management Platforms",
+                  "Analytics Tools",
+                  "Mobile & Web Apps",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-[#DA291C] font-serif">•</span>
+                    <span className="font-serif text-sm text-[#333]">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-sm text-zinc-500 mb-2 sm:mb-3"
-                  >
-                    {copyrights.organization}
-                  </motion.p>
+            {/* Legal Framework */}
+            <div className="mt-6 border border-[#ddd] p-5">
+              <h4 className="text-[10px] tracking-[0.3em] uppercase font-bold text-black mb-3">
+                Legal Framework
+              </h4>
+              <div className="space-y-3">
+                <p className="font-serif text-sm text-black font-semibold">
+                  Law No. 28 of 2014
+                </p>
+                <p className="font-serif text-xs text-[#444] leading-relaxed">
+                  Copyright protection in Indonesia is governed by the Law on Copyright, providing legal recognition and protection for creators and intellectual property owners.
+                </p>
+              </div>
+            </div>
 
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-xs text-zinc-600"
-                  >
-                    Registration No. {copyrights.registrationNo}
-                  </motion.p>
+            {/* Application Types */}
+            <div className="mt-6 p-5 bg-[#f5f3f0] border-l-4 border-[#DA291C]">
+              <p className="text-[10px] tracking-widest uppercase text-[#DA291C] mb-2">
+                Application Domains
+              </p>
+              <div className="space-y-2">
+                {[
+                  { domain: "Agriculture", desc: "Palm Oil Analytics" },
+                  { domain: "Food & Beverage", desc: "Barista Scheduling" },
+                  { domain: "HR & Administration", desc: "Attendance System" },
+                ].map((item, i) => (
+                  <div key={i}>
+                    <p className="font-serif text-sm font-bold text-black">{item.domain}</p>
+                    <p className="text-[11px] text-[#666]">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Registration Timeline */}
+            <div className="mt-6 p-4 border border-[#ddd]">
+              <h4 className="text-[10px] tracking-widest uppercase font-bold text-black mb-3">
+                Registration Timeline
+              </h4>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#DA291C]" />
+                  <span className="font-serif text-xs text-black">Jun 2025</span>
+                  <span className="text-[10px] text-[#666]">Hadir.In</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#DA291C]" />
+                  <span className="font-serif text-xs text-black">Jul 2025</span>
+                  <span className="text-[10px] text-[#666]">Jadwal.in</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#DA291C]" />
+                  <span className="font-serif text-xs text-black">Dec 2025</span>
+                  <span className="text-[10px] text-[#666]">Palm Oil Dashboard</span>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
         </div>
 
-        {/* Bottom flourish */}
+        {/* Bottom section - Decorative line */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-20 flex justify-center"
+          className="mt-16 border-t-4 border-black pt-6"
         >
-          <div className="h-px w-24 bg-linear-to-r from-transparent via-[#DA291C]/25 to-transparent" />
+          <div className="flex items-center justify-center gap-4">
+            <span className="w-20 h-px bg-[#999]" />
+            <span className="text-[#DA291C] text-2xl font-serif">&diams;</span>
+            <span className="w-20 h-px bg-[#999]" />
+          </div>
+        </motion.div>
+
+        {/* Edition footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-4 text-center"
+        >
+          <p className="text-[10px] tracking-widest uppercase text-[#666]">
+            End of Section &bull; Copyrights &bull; Vol. MMXXVI
+          </p>
         </motion.div>
       </div>
     </section>
