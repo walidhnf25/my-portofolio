@@ -20,9 +20,12 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aboutwal.id"),
+
   title: "Walid Hanif Ataullah",
   description:
     "Bachelor's graduate in Software Engineering specializing in Information Technology Adoption, Machine Learning, Deep Learning, and Internet of Things. View my research publications, projects, and connect with me.",
+
   keywords: [
     "Walid Hanif Ataullah",
     "Software Engineer",
@@ -34,16 +37,22 @@ export const metadata: Metadata = {
     "Researcher",
     "Telkom University",
   ],
+
   authors: [{ name: "Walid Hanif Ataullah" }],
   creator: "Walid Hanif Ataullah",
+
+  alternates: {
+    canonical: "https://aboutwal.id",
+  },
+
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://walidhanif.dev",
+    url: "https://aboutwal.id",
     siteName: "Walid Hanif Ataullah Portfolio",
     title: "Walid Hanif Ataullah | Software Engineer & AI Researcher",
     description:
-      "Premium portfolio of a Software Engineer and AI Researcher with expertise in ML, DL, and IoT.",
+      "Bachelor's graduate in Software Engineering specializing in Information Technology Adoption, Machine Learning, Deep Learning, and Internet of Things.",
     images: [
       {
         url: "/og-image.png",
@@ -53,13 +62,15 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Walid Hanif Ataullah | Software Engineer & AI Researcher",
     description:
-      "Premium portfolio of a Software Engineer and AI Researcher with expertise in ML, DL, and IoT.",
+      "Bachelor's graduate in Software Engineering specializing in Information Technology Adoption, Machine Learning, Deep Learning, and Internet of Things.",
     images: ["/og-image.png"],
   },
+
   robots: {
     index: true,
     follow: true,
@@ -71,6 +82,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
